@@ -1,0 +1,60 @@
+{
+    "sno": 1,
+    "helpdeskTicketId": "3183b124-eecd-46b2-89d8-135587677b98",
+    "ticketId": "SiteABC123000015",
+    "status": {
+        "statusType": "OPEN",
+        "statusName": "Ticket Open",
+        "defaultColor": "#FF0000"
+    },
+    "site": "ITPL",
+    "building": "Voyager",
+    "floor": "4F",
+    "room": "Restroom",
+    "category": "Safety Hazard",
+    "subCategory": "Electical Hazard",
+    "issue": "Other Issue",
+    "requester": "NA",
+    "assignedTo": "Helper",
+    "createdAt": "2023-10-19T04:04:59.303Z",
+    "level": "Immediate",
+    "attachment": [
+        {
+            "attachmentId": "5ec4d1ea-1845-44c1-a973-a8bb2e6953fc",
+            "attachmentUrl": "/var/punctualitiFiles/1697688298514_test.jpg",
+            "attachmentComment": "NA"
+        },
+        {
+            "attachmentId": "8e3f6f17-ae27-4284-9ea9-de4432af9c9e",
+            "attachmentUrl": "/var/punctualitiFiles/1697688298887_test.jpg",
+            "attachmentComment": "NA"
+        }
+    ],
+    "merged": false,
+    "comment": [
+        {
+            "commentBy": {
+                "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                "userName": "Mahendra B"
+            },
+            "commentDate": {
+                "epochDate": 1697688299303,
+                "isoDate": "2023-10-19T04:04:59.303Z"
+            },
+            "comment": "NA",
+            "_id": "6530aaebe4a3c77efb6a7dba"
+        }
+    ],
+    "nextStatus": [
+        {
+            "statusType": "IN-PROGRESS",
+            "statusName": "IN-PROGRESS",
+            "defaultColor": "#00FF00"
+        },
+        {
+            "statusType": "REJECTED",
+            "statusName": "Ticket REJECTED",
+            "defaultColor": "#00FF00"
+        }
+    ]
+}

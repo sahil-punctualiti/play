@@ -1,0 +1,317 @@
+{
+    "success": 1,
+    "message": "successfully fetched ticket details",
+    "data": {
+        "ticketDetails": {
+            "attachments": [
+                {
+                    "attachmentId": "35ab75b4-f35a-4c54-bd83-efe2d3884faa",
+                    "attachmentUrl": "/var/punctualitiFiles/1696692092116_test.jpg",
+                    "attachmentComment": "attachment comments"
+                }
+            ],
+            "category": {
+                "categoryId": "bf02b6b5-d8a0-4a1f-8c5f-8cf33356b2a5",
+                "categoryName": "ACS"
+            },
+            "subCategory": {
+                "subCategoryId": "dbe5932d-dba3-4a2e-ba5c-6d9cec382794",
+                "subCategoryName": "Access Controllers"
+            },
+            "ticketType": {
+                "ticketTypeId": "6b737bef-94a2-4e85-8327-ffbc2f5d10d7",
+                "ticketTypeName": "Proactive"
+            },
+            "issueType": {
+                "issueTypeId": "813b96a1-e12a-4d0a-bb83-32d531c71b16",
+                "issueTypeName": "Observation"
+            },
+            "issue": {
+                "issueId": "ac02ce6f-5d82-41ec-85a0-1de7517085e6",
+                "issueName": "Issue with power supply"
+            },
+            "priority": {
+                "priorityId": "88fc005f-d2f8-4f1e-9675-9361e8573195",
+                "priorityName": "P1"
+            },
+            "escalationLevel": "Immediate",
+            "description": "tester",
+            "assginedTo": "Electrician",
+            "status": "IN-PROGRESS"
+        },
+        "locationDetails": {
+            "site": {
+                "siteId": "be3d6ff9-732b-49be-8b36-85e340e42de3",
+                "siteName": "ITPL"
+            },
+            "building": {
+                "buildingId": "2f4ecb96-83b9-11ea-8001-005056991d951",
+                "buildingName": "Victor"
+            },
+            "floor": {
+                "floorId": "05086642-83bb-11ea-8001-005056991d951",
+                "floorName": "2F"
+            },
+            "room": {
+                "roomId": "050904d0-83bb-11ea-8001-005056991d951",
+                "roomName": "West Side Exit 01"
+            }
+        },
+        "requesterDetails": {
+            "requesterType": "NA",
+            "receivedBy": "NA",
+            "requesterName": "NA",
+            "requesterPhoneNo": "NA",
+            "requesterEmail": "dharmeshpanchalmca@gmail.com",
+            "requesterDepartment": "NA"
+        },
+        "miscellaneous": [
+            {
+                "key": "Requestor Email",
+                "value": "dharmeshpanchalmca@gmail.com"
+            },
+            {
+                "key": "Site",
+                "value": "ITPL"
+            },
+            {
+                "key": "Building",
+                "value": "Victor"
+            },
+            {
+                "key": "Floor",
+                "value": "2F"
+            },
+            {
+                "key": "Room",
+                "value": "West Side Exit 01"
+            },
+            {
+                "key": "Specific Area",
+                "value": "Test"
+            },
+            {
+                "key": "Ticket Type",
+                "value": "Proactive"
+            },
+            {
+                "key": "Issue Type",
+                "value": "Observation"
+            },
+            {
+                "key": "Category",
+                "value": "ACS"
+            },
+            {
+                "key": "Sub-Category",
+                "value": "Access Controllers"
+            },
+            {
+                "key": "Service Issue",
+                "value": "Issue with power supply"
+            },
+            {
+                "key": "Comment",
+                "value": "tester"
+            },
+            {
+                "key": "Attachment",
+                "value": []
+            },
+            {
+                "key": "Ticket Type",
+                "value": "6b737bef-94a2-4e85-8327-ffbc2f5d10d7"
+            },
+            {
+                "key": "Issue Type",
+                "value": "813b96a1-e12a-4d0a-bb83-32d531c71b16"
+            },
+            {
+                "key": "Category",
+                "value": "bf02b6b5-d8a0-4a1f-8c5f-8cf33356b2a5"
+            },
+            {
+                "key": "Sub-Category",
+                "value": "dbe5932d-dba3-4a2e-ba5c-6d9cec382794"
+            },
+            {
+                "key": "Service Issue",
+                "value": "ac02ce6f-5d82-41ec-85a0-1de7517085e6"
+            },
+            {
+                "key": "Comment",
+                "value": "tester"
+            },
+            {
+                "key": "Attachment",
+                "value": []
+            }
+        ],
+        "logs": {
+            "updateLogs": [
+                {
+                    "logType": "TICKET_CREATED",
+                    "logDate": {
+                        "epochDate": 1696691990411,
+                        "isoDate": "2023-10-07T15:19:50.411Z"
+                    },
+                    "logStatus": "Ticket Open",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": []
+                },
+                {
+                    "logType": "COMMENT_ADDED",
+                    "logDate": {
+                        "epochDate": 1696691990411,
+                        "isoDate": "2023-10-07T15:19:50.411Z"
+                    },
+                    "logStatus": "Ticket Open",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": [
+                        {
+                            "key": "comment",
+                            "value": "tester",
+                            "_id": "65217716e4a3c77efb6a7a21"
+                        }
+                    ]
+                },
+                {
+                    "logType": "ATTACHMENT_ADDED",
+                    "logDate": {
+                        "epochDate": 1696691990411,
+                        "isoDate": "2023-10-07T15:19:50.411Z"
+                    },
+                    "logStatus": "Ticket Open",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": [
+                        {
+                            "key": "attachment",
+                            "_id": "65217716e4a3c77efb6a7a22"
+                        }
+                    ]
+                },
+                {
+                    "logType": "STATUS_UPDATED",
+                    "logDate": {
+                        "epochDate": 1696692104287,
+                        "isoDate": "2023-10-07T15:21:44.287Z"
+                    },
+                    "logStatus": "IN-PROGRESS",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": [
+                        {
+                            "key": "newStatus",
+                            "value": "IN-PROGRESS",
+                            "_id": "65217788e4a3c77efb6a7a71"
+                        }
+                    ]
+                },
+                {
+                    "logType": "COMMENT_ADDED",
+                    "logDate": {
+                        "epochDate": 1696692104287,
+                        "isoDate": "2023-10-07T15:21:44.287Z"
+                    },
+                    "logStatus": "IN-PROGRESS",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": [
+                        {
+                            "key": "comment",
+                            "value": "done",
+                            "_id": "65217788e4a3c77efb6a7a72"
+                        }
+                    ]
+                },
+                {
+                    "logType": "ATTACHMENT_ADDED",
+                    "logDate": {
+                        "epochDate": 1696692104287,
+                        "isoDate": "2023-10-07T15:21:44.287Z"
+                    },
+                    "logStatus": "IN-PROGRESS",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": [
+                        {
+                            "key": "attachment",
+                            "value": [
+                                "/var/punctualitiFiles/1696692092116_test.jpg"
+                            ],
+                            "_id": "65217788e4a3c77efb6a7a73"
+                        }
+                    ]
+                }
+            ],
+            "statusLogs": [
+                {
+                    "logType": "STATUS_UPDATED",
+                    "logDate": {
+                        "epochDate": 1696692104287,
+                        "isoDate": "2023-10-07T15:21:44.287Z"
+                    },
+                    "logStatus": "IN-PROGRESS",
+                    "logUser": {
+                        "userId": "e3e3c144-0691-45be-afa0-a84849b4c3a7",
+                        "userName": "Mahendra B",
+                        "userPhoneNo": "9545688916",
+                        "userEmail": "mahendra@x38.com"
+                    },
+                    "logData": [
+                        {
+                            "key": "newStatus",
+                            "value": "IN-PROGRESS",
+                            "_id": "65217788e4a3c77efb6a7a71"
+                        }
+                    ]
+                }
+            ],
+            "escalationLogs": []
+        },
+        "nextStatus": [
+            {
+                "statusType": "ON-HOLD",
+                "statusName": "Ticket ON-HOLD",
+                "defaultColor": "#00FF00"
+            },
+            {
+                "statusType": "REJECTED",
+                "statusName": "Ticket REJECTED",
+                "defaultColor": "#00FF00"
+            },
+            {
+                "statusType": "RESOLVED",
+                "statusName": "Ticket RESOLVED",
+                "defaultColor": "#00FF00"
+            }
+        ]
+    }
+}

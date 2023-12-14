@@ -3,7 +3,7 @@ punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
                 pswd : arV03$y42 or arU03$y42
 gitPswd: 88********@sahil
-gitToken : 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
+gitToken : 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
 
 setenforce 0
 

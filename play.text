@@ -1,0 +1,17 @@
+
+CREATE TABLE punctual_societygeneral_master.pun_vendor_master_all AS
+SELECT 
+Auto_Id,Vendor_Name,Contact,Record_Status
+ FROM punctual_societygeneral_dlf.pun_vendor_master
+UNION
+SELECT 
+Auto_Id,Vendor_Name,Contact,Record_Status
+ FROM punctual_societygeneral_itpl.pun_vendor_master
+UNION
+SELECT 
+Auto_Id,Vendor_Name,Contact,Record_Status
+ FROM punctual_societygeneral_pritech.pun_vendor_master
+UNION
+SELECT 
+Auto_Id,Vendor_Name,Contact,Record_Status
+ FROM punctual_societygeneral_redbrick.pun_vendor_master

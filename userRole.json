@@ -1,154 +1,613 @@
-{
-    "_id": {
-        "$oid": "65684b604fe56dc7c5507f89"
+
+//do ticket migratioon after migrating escalation and user and asset(if no asset then remove it from following sql query of tickets)
+//add site status manually in db(taken care in site migration) update site status name in feedback for closed and update max rating for feedback, 
+//add asset table for client from site db 
+//please update counter in ticket form after migrating
+const { v4: uuidv4 } = require('uuid');
+const getSqlConnection = require("../../common/sqlConnection")
+const helpdeskTicketModel = require("../../mongoModels/helpdeskTicket");
+const escalationModel = require("../../mongoModels/escalations");
+
+
+const config = require("../../common/config.json")
+const sqlConnection = getSqlConnection(config.sqlDatabase);
+
+let skippedTicket = [];
+let feedbackRating = [
+    {
+        "ratingType": "UNSATISFIED",
+        "ratingName": "Unsatisfied",
+        "ratingRank": 1,
+        "ratingQuestion": "What was the reason you were disatisfied"
     },
-    "roleId": "a4fa674f-552a-4400-ab84-0d9dc1638fd9",
-    "roleName": "CLIENT_ADMIN",
-    "module": {
-        "helpdesk": {
-            "navigationAccess": "ADMIN",
-            "accessList": [
-                "getTicketForm",
-                "getEscalationLevel",
-                "getActiveFormBuilder",
-                "getPriorityList",
-                "getPriorityDetails",
-                "getIncidentTypeList",
-                "getTicketTypeList",
-                "getIssueTypeList",
-                "getCategoryList",
-                "getSubCategoryList",
-                "getServiceIssueList",
-                "getEscalationList",
-                "getAssetTypeList",
-                "getAsset",
-                "getAssetVendor",
-                "getAllActiveEscalationLevel",
-                "getSiteTicketStatus",
-                "getTicketSummary",
-                "getTicketList",
-                "getTicketDetails",
-                "getStatusWiseReport",
-                "getSlaWiseReport",
-                "getRepeatedReport",
-                "exportStatusWiseReportCSV",
-                "exportSlaWiseReportCSV",
-                "exportRepeatedReportCSV",
-                "exportTicketListCSV",
-                "exportEscalationList",
-                "addTicketform",
-                "addEscalationLevelData",
-                "addTicketStatus",
-                "createPriority",
-                "updatePriority",
-                "createIncidentType",
-                "updateIncidentType",
-                "createTicketType",
-                "updateTicketType",
-                "createIssueType",
-                "updateIssueType",
-                "createCategory",
-                "updateCategory",
-                "createSubCategory",
-                "updateSubCategory",
-                "createServiceIssue",
-                "updateServiceIssue",
-                "createEscalation",
-                "updateEscalation",
-                "createTicket",
-                "updateTicket",
-                "removeTicketAttachment",
-                "mergeTicket",
-                "getTicketNextStatus",
-                "getAllActivePriorityList",
-                "getAllActiveIncidentTypeList",
-                "getAllActiveTicketTypeList",
-                "geAllActivetIssueTypeList",
-                "getAllActiveCategoryList",
-                "getAllActiveSubCategoryList",
-                "getAllActiveServiceIssueList",
-                "getAllActiveAssetTypeList",
-                "getTicketReport"
-            ]
-        },
-        "adminMaster": {
-            "navigationAccess": "ADMIN",
-            "accessList": [
-                "getAccountList",
-                "getAccountDetails",
-                "getAddressDetails",
-                "getSiteList",
-                "getSiteDetails",
-                "getAssetList",
-                "getAssetDetails",
-                "getVendorList",
-                "getVendorDetails",
-                "getTenantList",
-                "getAllActiveTenantList",
-                "getTenantDetails",
-                "getTenantGroupList",
-                "getTenantGroupDetails",
-                "getAreaList",
-                "getAreaDetails",
-                "getAllActiveAreaList",
-                "createFacilitatorProfile",
-                "createClientProfile",
-                "addAccountAddresses",
-                "addAccountContacts",
-                "addSiteContacts",
-                "createBuilding",
-                "createArea",
-                "createVendor",
-                "addVendorAddresses",
-                "addVendorContacts",
-                "addVendorBuildings",
-                "createAsset",
-                "addAssetDetails",
-                "addAssetLocation",
-                "addAssetRegister",
-                "addAssetAttachment",
-                "addTenantGroup",
-                "addTenant",
-                "addTenantArea",
-                "addTenantEmployee",
-                "addTenantParking",
-                "uploadFile",
-                "uploadFiles"
-            ]
-        },
-        "userMaster": {
-            "navigationAccess": "USER",
-            "accessList": [
-                "getUserRole",
-                "addUser",
-                "updateUserDetails",
-                "getAllUsers",
-                "getMySites",
-                "createUserGroup",
-                "addUserToGroup",
-                "removeUserFromUserGroup",
-                "getUserGroups",
-                "getGroupUsers",
-                "getUserGroupsOfUser"
-            ]
-        }
+    {
+        "ratingType": "POOR",
+        "ratingName": "Poor",
+        "ratingRank": 2,
+        "ratingQuestion": "What was the reason you were disatisfied"
+    },
+    {
+        "ratingType": "AVERAGE",
+        "ratingName": "Average",
+        "ratingRank": 3,
+        "ratingQuestion": "Comments"
+    },
+    {
+        "ratingType": "GOOD",
+        "ratingName": "Good",
+        "ratingRank": 4,
+        "ratingQuestion": "Comments"
+    },
+    {
+        "ratingType": "VERY GOOD",
+        "ratingName": "Very Good",
+        "ratingRank": 5,
+        "ratingQuestion": "Comments"
     }
-}
+]
+sqlConnection.connect(err => {
+    if (err) {
+        console.error('Error connecting to SQL database:', err);
+        return;
+    }
+
+    console.log('Connected to SQL database');
+    let sqlQuery = `SELECT 
+                    	a.id as helpdeskTicketId,
+                        a.ticket_code as ticketId,
+                        a.status as statusName,
+                        CONCAT(COALESCE(a.issue_type_id, 0), '-',a.category_id) AS newCategoryId,
+                    	b.category_name as categoryName,
+                    	CONCAT(COALESCE(a.issue_type_id, 0), '-',COALESCE(a.category_id,0),'-',a.sub_category_id) as newSubCategoryId,
+                    	c.sub_category_name as subCategoryName,
+                        a.ticket_type_id as ticketTypeId,
+                        d.ticket_type as ticketTypeName,
+                    	a.issue_type_id as issueTypeId,
+                        e.issue_type as issueTypeName,
+                        CONCAT(COALESCE(a.issue_type_id, 0), '-',COALESCE(a.category_id,0),'-',COALESCE(a.sub_category_id,0),'-',a.issue_id) as newIssueId,
+                        f.issues as issueName,
+                        g.id priorityId,
+                        f.priority as priorityName, -- change to a.priority if no data
+                        a.site_id as siteId,
+                        h.Site_Location_Name as siteName,
+                        a.building_id as buildingid,
+                        i.building_name as buildingName,
+                        a.floor_id as floorId,
+                        j.floor_name as floorName,
+                        a.room_id as roomId,
+                        k.Room_Area as roomName,
+                        a.tenant_id as tenantId,
+                        n.TenantName as tenantName,
+                        a.incident_classification as incidentClassification,
+                        a.incident_type as incidentType,
+                        a.imt_id as imtId,
+                        a.area as areaName,
+                        a.asset_id as assetId,
+                        m.Asset_Name as assetName,
+                        a.level as levelName,
+                        a.created_at createdAt,
+                        a.desc as description,
+                        a.corrective_action as correactiveAction,
+                        a.rca as rca,
+                        a.user_id as createdByid,
+                        l.Employee_Name as createdByName,
+                        p.id as createdByTenantUserId,
+                        p.name as createdByTenantUserName,
+                        p.mailid as tenantUserMail,
+                        p.contact as tenantUserMobile
+                        l.Contact_No as createdByMobile,
+                        l.Email as createdByEmail,
+                        a.client_name as requestorName,
+                        a.client_contact_no as requestorMobile,
+                        a.client_email as requestorEmail,
+                        a.client_dept_name as requestorDepartment,
+                        a.resolved_at as resolvedAt,
+                        a.closed_at as closedAt,
+                        o.rating as rating
 
 
+                    FROM helpdk_tickets a
+                    LEFT OUTER JOIN helpdk_category b on a.category_id = b.id
+                    LEFT OUTER JOIN helpdk_sub_category c on a.sub_category_id = c.id
+                    LEFT OUTER JOIN helpdk_ticket_type d on a.ticket_type_id= d.id
+                    LEFT OUTER JOIN helpdk_issue_type e on a.issue_type_id = e.id
+                    LEFT OUTER JOIN helpdk_actual_issue f on a.issue_id= f.id
+                    LEFT OUTER JOIN helpdk_priority g on f.priority= g.priority  -- chane f.priority to a.a.priority if no data
+                    LEFT OUTER JOIN pun_site_location_master h on a.site_id = h.Auto_Id
+                    LEFT OUTER JOIN pun_building_master i on a.building_id = i.Auto_Id
+                    LEFT OUTER JOIN pun_floor_master j on a.floor_id = j.AutoId
+                    LEFT OUTER JOIN ker_room_master k on a.room_id= k.Auto_Id
+                    LEFT OUTER JOIN ker_user_master l on a.user_id = l.Auto_Id
+                    LEFT OUTER JOIN pun_asset_smart_place_master_all m on a.asset_id= m.Auto_Id  -- do asset migration (cause in there we are creating new table pun_asset_smart_place_master_all)
+                    LEFT OUTER JOIN pun_tenant_master n on a.tenant_id = n.Auto_Id  -- do this only if there is tenant
+                    LEFT OUTER JOIN helpdk_feedback o on a.id= o.ticket_id
+                    LEFT OUTER JOIN helpdk_users p on a.user_id = p.id  -- we have users in two table helpdk_user and ker_user_master so if one doesnt have data then 2nd one will have it
+                    ; `
+
+    sqlConnection.query(sqlQuery, async (sqlErr, sqlResults) => {
+        if (sqlErr) {
+            console.error('Error querying SQL database:', sqlErr);
+            sqlConnection.end();
+            return;
+        }
+
+        console.log('Queried data from SQL');
+        let siteTicketStatus = [
+            {
+                "statusType": "OPEN",
+                "statusName": "Open",
+                "defaultColor": "#686687",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "nextStatus": [
+                    "IN-PROGRESS",
+                    "ATTENDED",
+                    "INSPECTED",
+                    "REJECTED",
+                    "ON-HOLD"
+                ]
+            },
+            {
+                "statusType": "IN-PROGRESS",
+                "statusName": "In Progress",
+                "defaultColor": "#0084FF",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "nextStatus": [
+                    "ON-HOLD",
+                    "REJECTED",
+                    "RESOLVED"
+                ]
+            },
+            {
+                "statusType": "ON-HOLD",
+                "statusName": "Hold",
+                "defaultColor": "#F3722C",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "timeLimit": 172800000,
+                "nextStatus": [
+                    "IN-PROGRESS"
+                ]
+            },
+            {
+                "statusType": "CLOSED",
+                "statusName": "Closed",
+                "defaultColor": "#008E6D",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "nextStatus": [
+                    "RE-OPEN"
+                ]
+            },
+            {
+                "statusType": "RE-OPEN",
+                "statusName": "Reopen",
+                "defaultColor": "#DF9F40",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "nextStatus": [
+                    "IN-PROGRESS",
+                    "ATTENDED",
+                    "INSPECTED",
+                    "RESOLVED",
+                    "ON-HOLD"
+                ]
+            },
+            {
+                "statusType": "REJECTED",
+                "statusName": "Rejected",
+                "defaultColor": "#E84754",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "nextStatus": [
+                    "RE-OPEN",
+                    "CLOSED"
+                ]
+            },
+            {
+                "statusType": "RESOLVED",
+                "statusName": "Resolved",
+                "defaultColor": "#12B690",
+                "statusUpdateAccess": ["CLIENT_USER", "TENANT_USER"],
+                "statusUpdateAccessFmxLevel": ["Level 0", "Level 1", "Level 2", "Level 3"],
+                "nextStatus": [
+                    "CLOSED"
+                ]
+            }
+        ]
+
+        async function getTicketLogs(ticketId) {
+            return new Promise((resolve, reject) => {
+                const ticketLogsQuery = `SELECT 
+                                            a.ticket_id as ticketId,
+                                            a.description as comment,
+                                            a.created_at as createdAt,
+                                            a.log_text as comment,
+                                            a.user_id as userId,
+                                            b.Employee_Name as name,
+                                             b.User_Name as userName,
+                                             b.Contact_No as userPhoneNo,
+                                             b.Email as userEmail
+                                        FROM helpdk_ticket_log a
+                                        LEFT OUTER JOIN ker_user_master b on a.user_id = b.Auto_Id 
+                                        where a.ticket_id = "${ticketId}"
+                                        order by a.created_at
+
+                                        ;`;
+
+                sqlConnection.query(ticketLogsQuery, (sqlErr, ticketLogsResult) => {
+                    if (sqlErr) {
+                        reject(sqlErr);
+                    } else {
+                        const ticketLogs = ticketLogsResult.map(tl => {
+                            return {
+                                "logType": "COMMENT_ADDED",
+                                "logDate": {
+                                    "epochDate": tl.createdAt ? Date.parse(tl.createdAt) : "NA",
+                                    "isoDate": tl.createdAt ? tl.createdAt : "NA"
+                                },
+                                "logStatus": "NA",
+                                "logUser": {
+                                    "userId": tl.userId,
+                                    "userName": tl.name,
+                                    "userPhoneNo": tl.userPhoneNo,
+                                    "userEmail": tl.userEmail
+                                },
+                                "logData": [
+                                    {
+                                        "key": "comment",
+                                        "value": tl.comment,
+                                    }
+                                ],
+                                "logMessage": `Comment Added By ${tl.name}\nComment : ${tl.comment}`
+
+                            }
+                        })
+
+                        resolve(ticketLogs);
+                    }
+                });
+            });
+        }
+
+        let mongoHelpdeskTicket = [];
+        let totalTicket = sqlResults.length;
+        for (let index = 0; index < totalTicket; index++) {
+            console.log("creating ", index + 1, " out of ", totalTicket);
+            const sqlRow = sqlResults[index];
+            let ticketLogs = [
+                {
+                    "logType": "TICKET_CREATED",
+                    "logDate": {
+                        "epochDate": sqlRow.createdAt ? Date.parse(sqlRow.createdAt) : "NA",
+                        "isoDate": sqlRow.createdAt ? sqlRow.createdAt : "NA"
+                    },
+                    "logStatus": "Ticket Open",
+                    "logUser": {
+                        "userId": sqlRow.createdByid || sqlRow.createdByTenantUserId,
+                        "userName": sqlRow.createdByName || sqlRow.tenantUserMail,
+                        "userPhoneNo": sqlRow.createdByMobile || sqlRow.tenantUserMobile,
+                        "userEmail": sqlRow.createdByEmail || sqlRow.tenantUserMail
+                    },
+                    "logData": [],
+                    "logMessage": `Ticket Created By ${sqlRow.createdByName || sqlRow.createdByTenantUserName}`
+
+                },
+            ];
+            let ticketCommentLogs = await getTicketLogs(sqlRow.helpdeskTicketId);
+
+            ticketLogs.push(...ticketCommentLogs);
+
+            let ticketComments = ticketCommentLogs.map(i => {
+                return {
+                    "commentBy": {
+                        "userId": i.logUser.userid,
+                        "userName": i.logUser.userName
+                    },
+                    "commentDate": {
+                        "epochDate": i.logDate.epochDate,
+                        "isoDate": i.logDate.isoDate
+                    },
+                    "comment": i.logData[0].value,
+                }
+            })
 
 
+            let escalationFilterQuery = { "issue.issueId": sqlRow.newIssueId, "areaId": sqlRow.siteId };
+            let escalationSelectQuery = { "levels": 1, "_id": 0 };
 
-  
+            let escalation = await escalationModel.find(escalationFilterQuery).read('secondaryPreferred').select(escalationSelectQuery);
+
+            //if no escalation then find any esclation of same issue but any category cause in old assignee define to issue only irrespective of category 
+            if (!escalation[0]) {
+                let newEscalationFilterQuery = { "issue.issueId": { $regex: /-1$/ }, "areaId": sqlRow.siteId }
+                escalation = await escalationModel.find(newEscalationFilterQuery).read('secondaryPreferred').select(escalationSelectQuery).limit(1);
+            }
+            let escalatonLevel = escalation[0]?.levels.sort((i, j) => i.levelRank - j.levelRank) || [];
+
+            //update level type and rank as per new data migration
+            let pastEscalationLevel = [
+                {
+                    "levelType": sqlRow.levelName === "L0" ? "Level 0" : sqlRow.levelName === "L1" ? "Level 1" : sqlRow.levelName === "L2" ? "Level 2" : sqlRow.levelName === "L3" ? "Level 3" : "",
+                    "levelName": sqlRow.levelName,
+                    "levelRank": sqlRow.levelName[1]
+                }
+            ]
+            let ticketAssginedTo = {
+                "assignedToType": "GROUP",
+                "assignedToDetails": {
+                    "id": "NA",
+                    "name": "NA"
+                }
+            }
+            let nextEscalation = {
+                escalate: false
+            }
+            let responseTime = 0;
+            let resolutionTime = 0;
+            if (escalatonLevel && escalatonLevel.length) { //&& sqlRow.statusName !== "Closed" && sqlRow.statusName !== "Resolved" && sqlRow.statusName !== "Cancel"
+                let currentEscalationIndex = escalatonLevel.findIndex(i => i.levelName === sqlRow.levelName)
+                let currentLevel = escalatonLevel[currentEscalationIndex];
+                if (!currentLevel) {   //sqlRow.levelName === "L0" //for L0 if L0 is missing for some
+                    console.log({ ticketId: sqlRow.ticketId, status: sqlRow.statusName });
+                    skippedTicket.push(sqlRow.ticketId);
+                    continue;
+                }
+                // console.log(sqlRow.status);
+                // console.log(escalatonLevel);
+                // console.log(currentEscalationIndex);
+                // console.log(sqlRow.levelName);
+                responseTime = escalatonLevel[currentEscalationIndex].responseTime || 0;
+                resolutionTime = escalatonLevel[currentEscalationIndex].resolutionTime || 0;
+
+                pastEscalationLevel[0]["responseTime"] = responseTime;
+                pastEscalationLevel[0]["resolutionTime"] = resolutionTime;
+
+                //update level type and rank as per new data migration
+                pastEscalationLevel = escalatonLevel.slice(0, currentEscalationIndex + 1).map(i => {
+                    return {
+                        "levelType": sqlRow.levelName === "L0" ? "Level 0" : sqlRow.levelName === "L1" ? "Level 1" : sqlRow.levelName === "L2" ? "Level 2" : sqlRow.levelName === "L3" ? "Level 3" : "",
+                        "levelName": i.levelName,
+                        "levelRank": i.levelRank,
+                        "responseTime": i.responseTime,
+                        "resolutionTime": i.resolutionTime
+                    }
+                });
+
+                ticketAssginedTo = currentLevel.assignTo;
+
+                let nextEscalationLevel = escalatonLevel[currentEscalationIndex + 1]; //issuEscalation is sorted then 1st index escalation will be the next one
+                if (nextEscalationLevel) {
+                    if (currentLevel.escalate) {
+                        nextEscalation["escalate"] = true;
+                        nextEscalation["escalateTime"] = Date.now() + currentLevel.responseTime;
+                        nextEscalation["escalationLevel"] = nextEscalationLevel
+                    } else {
+                        nextEscalation["escalate"] = true;
+                        nextEscalation["escalateTime"] = Date.now() + currentLevel.resolutionTime;
+                        nextEscalation["escalationLevel"] = nextEscalationLevel
+                    }
+                }
+            }
+
+            const helpdeskTicket = {
+                "helpdeskTicketId": uuidv4(),
+                "sqlHelpdeskTicketId": sqlRow.helpdeskTicketId,
+                "ticketId": sqlRow.ticketId,
+                "status": siteTicketStatus.find(i => i.statusName === sqlRow.statusName),
+                "ticketDetails": {
+                    "attachments": [
+                        {
+                            "attachmentId": "35ab75b4-f35a-4c54-bd83-efe2d3884faa",
+                            "attachmentUrl": "", //need check
+                            "attachmentComment": "attachment comments"
+                        }
+                    ],
+                    "category": {
+                        "categoryId": sqlRow.newCategoryId,
+                        "categoryName": sqlRow.categoryName
+                    },
+                    "subCategory": {
+                        "subCategoryId": sqlRow.newSubCategoryId,
+                        "subCategoryName": sqlRow.subCategoryName
+                    },
+                    "ticketType": {
+                        "ticketTypeId": sqlRow.ticketTypeId,
+                        "ticketTypeName": sqlRow.ticketTypeName
+                    },
+                    "issueType": {
+                        "issueTypeId": sqlRow.issueTypeId,
+                        "issueTypeName": sqlRow.issueTypeName
+                    },
+                    "issue": {
+                        "issueId": sqlRow.newIssueId,
+                        "issueName": sqlRow.issueName
+                    },
+                    "priority": {
+                        "priorityId": sqlRow.priorityId,
+                        "priorityName": sqlRow.priorityName
+                    },
+                    "IncidentClassification": sqlRow.incidentType || "",
+                    "correctiveAction": sqlRow.corrective_action || "",
+                    "rca": sqlRow.rca || ""
+                },
+                "requesterDetails": {
+                    "requesterType": "NA",
+                    "receivedBy": "NA",
+                    "requesterName": sqlRow.requestorName || "NA",
+                    "requesterPhoneNo": sqlRow.requestorMobile,
+                    "requesterEmail": sqlRow.requestorEmail,
+                    "requesterDepartment": sqlRow.requestorDepartment
+                },
+                "createdBy": {
+                    "userId": sqlRow.createdByid || sqlRow.createdByTenantUserId,
+                    "userName": sqlRow.createdByName || sqlRow.tenantUserMail,
+                    "userPhoneNo": sqlRow.createdByMobile || sqlRow.tenantUserMobile,
+                    "userEmail": sqlRow.createdByEmail || sqlRow.tenantUserMail
+                },
+                "locationDetails": {
+                    "site": {
+                        "siteId": sqlRow.siteId,
+                        "siteName": sqlRow.siteName
+                    },
+                    "building": {
+                        "buildingId": sqlRow.buildingid,
+                        "buildingName": sqlRow.buildingName
+                    },
+                    "floor": {
+                        "floorId": sqlRow.floorId,
+                        "floorName": sqlRow.floorName
+                    },
+                    "room": {
+                        "roomId": sqlRow.roomId,
+                        "roomName": sqlRow.roomName
+                    },
+                    "tenant": {
+                        "tenantId": sqlRow.tenantId,
+                        "tenantName": sqlRow.tenantName
+                    },
+                    "asset": {
+                        "assetId": sqlRow.assetId,
+                        "assetName": sqlRow.assetName
+                    }
+                },
+                "FormDetails": {
+                    "steps": [
+                        {
+                            "sections": [
+                                {
+                                    "sectionTitle": "Requestor Details",
+                                    "sectionDescription": "add some basic information related to the requestor",
+                                    "sectionData": {
+                                        "Email address": sqlRow.createdByEmail || sqlRow.tenantUserMail
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "sections": [
+                                {
+                                    "sectionTitle": "Location Details",
+                                    "sectionDescription": "add some basic information related to the location",
+                                    "sectionData": {
+                                        "Site": sqlRow.siteName,
+                                        "Building": sqlRow.buildingName,
+                                        "Floor": sqlRow.floorName,
+                                        "Room/Area": sqlRow.roomName,
+                                        "Area": sqlRow.areaName
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "sections": [
+                                {
+                                    "sectionTitle": "Issue Details",
+                                    "sectionDescription": "add some basic information related to the issue",
+                                    "sectionData": {
+                                        "Ticket Type": sqlRow.ticketTypeName,
+                                        "Issue Type": sqlRow.issueTypeName,
+                                        "Incident Clastification": sqlRow.incidentClassification === "Yes" ? sqlRow.incidentType : "NA",
+                                        "Category": sqlRow.categoryName,
+                                        "Sub-Category": sqlRow.subCategoryName,
+                                        "Service Issue": sqlRow.issueName,
+                                        "Description": sqlRow.description,
+                                        "Corrective action": sqlRow.correactiveAction,
+                                        "RCA": sqlRow.rca,
+                                        "Upload Images": []
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "sections": [
+                                {
+                                    sectionTitle: "Source Details",
+                                    sectionDescription: "Source Details",
+                                    sectionData: {
+                                        Source: "Helpdesk"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "ticketLogs": ticketLogs,
+                "assignedTo": ticketAssginedTo,
+                "escalationLevel": pastEscalationLevel,
+                "nextEscalation": nextEscalation,
+                "nextNotification": {
+                    "notify": false
+                },
+                "comments": ticketComments,
+                "isChild": false,
+                "isParent": false,
+                "parentId": null,
+                "createdDate": {
+                    "epochDate": sqlRow.createdAt ? Date.parse(sqlRow.createdAt) : "NA",
+                    "isoDate": sqlRow.createdAt ? sqlRow.createdAt : "NA"
+
+                },
+                "isResolved": sqlRow.resolvedAt ? true : false,
+                "resolvedDate": {
+                    "epochDate": sqlRow.resolvedAt ? Date.parse(sqlRow.resolvedAt) : undefined,
+                    "isoDate": sqlRow.resolvedAt ? new Date(Date.parse(sqlRow.resolvedAt)).toISOString() : undefined
+                },
+                "isClosed": sqlRow.closedAt ? true : false,
+                "closedDate": {
+                    "epochDate": sqlRow.closedAt ? Date.parse(sqlRow.closedAt) : undefined,
+                    "isoDate": sqlRow.closedAt ? new Date(Date.parse(sqlRow.closedAt)).toISOString() : undefined
+                },
+                "sla": {
+                    "isSlaBreached": false,
+                    "responseTime": responseTime, //first escalation time
+                    "resolutionTime": resolutionTime, //first escalation time
+                    "expectedClosureDate": {
+                        "epochDate": Date.parse(sqlRow.createdAt) + responseTime + resolutionTime,
+                        "isoDate": new Date(Date.parse(sqlRow.createdAt) + responseTime + resolutionTime).toISOString()
+                    }
+                },
+                "siteTicketStatus": siteTicketStatus,
+                "issueEscalations": escalatonLevel,
+                "ticketViewConfig": {
+                    "Floor": true,
+                    "Room": true,
+                    "Category": true,
+                    "SubCategory": true,
+                    "Requestor": true,
+                    "IssueType": true,
+                    "TicketType": true,
+                    "Requestorr": true,
+                    "IncidentClassification": true
+                },
+                "feedback": {
+                    "readyForFeedback": sqlRow.statusName === "Closed" ? true : false,
+                    "feedbackSubmitted": sqlRow.rating ? true : false,
+                    "feedbackData": {
+                        "icon": "STAR",
+                        "maxRating": 5,
+                        "submittedRating": sqlRow.rating ? feedbackRating[Number(sqlRow.rating) - 1] : {},
+                    }
+                },
+                "imtId": sqlRow.imtId
+            }
+
+            mongoHelpdeskTicket.push(helpdeskTicket)
+        };
+
+        console.log("created migration data");
+        let migration = await helpdeskTicketModel.insertMany(mongoHelpdeskTicket)
+        console.log("data migration done");
+        console.log({ skippedTicket });
+        sqlConnection.end((endErr) => {
+            if (endErr) {
+                console.error('Error closing the connection:', endErr);
+            } else {
+                console.log('Connection closed.');
+            }
+        });
+    })
+});
 
 
-"getTicketNextStatus",
-"getAllActivePriorityList",
-"getAllActiveIncidentTypeList",
-"getAllActiveTicketTypeList",
-"geAllActivetIssueTypeList",
-"getAllActiveCategoryList",
-"getAllActiveSubCategoryList",
-"getAllActiveServiceIssueList",
-"getAllActiveAssetTypeList",
-"getTicketReport",

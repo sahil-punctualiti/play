@@ -3,7 +3,7 @@ punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
                 pswd : arV03$y42 or arU03$y42
 gitPswd: 88********@sahil
-gitToken : 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
+gitToken : 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
 
 setenforce 0
 
@@ -48,8 +48,11 @@ dnf install redis -y
 
 8850500669Sahil@
 mysql -u root -p
-mysql -u root -p punctual_impression_master < punctual_impression_master.sql
+mysql -u root -p punctual_knightfrank_sattva < punctual_knightfrank_sattva.sql
 
 
-pm2 start npm --name serviceName -- start --port 3000
-netstart -tulpn | grep ':3010'
+pm2 start npm --name fmxLandingFrontenf -- start --port 3000
+netstat -anp | grep "3134"
+lsof -i -P -n | grep 3004
+
+client=knightfrank pm2 start index.js --name knightfrank_adminMasterApi --update-env

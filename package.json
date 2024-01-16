@@ -5,7 +5,7 @@
   "main": "play.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"node play.js"
+    "dev": "node play.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "aws-sdk": "^2.1489.0",
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "crypto": "^1.0.1"
   }
 }

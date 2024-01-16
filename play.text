@@ -1,17 +1,9 @@
-
-CREATE TABLE punctual_societygeneral_master.pun_vendor_master_all AS
-SELECT 
-Auto_Id,Vendor_Name,Contact,Record_Status
- FROM punctual_societygeneral_dlf.pun_vendor_master
-UNION
-SELECT 
-Auto_Id,Vendor_Name,Contact,Record_Status
- FROM punctual_societygeneral_itpl.pun_vendor_master
-UNION
-SELECT 
-Auto_Id,Vendor_Name,Contact,Record_Status
- FROM punctual_societygeneral_pritech.pun_vendor_master
-UNION
-SELECT 
-Auto_Id,Vendor_Name,Contact,Record_Status
- FROM punctual_societygeneral_redbrick.pun_vendor_master
+{
+    "adminHost": "http://localhost:3008",  //fmx-adminCoreServices-backend
+    "clientAdminHelpdeskHost": "http://localhost:3012",  //fmx-clientAdmin-helpdexCoreServices-backend
+    "formBuilderHost": "http://localhost:3010", //fmx-formBuilder-CoreServices-backend
+    "devicesHost": "http://localhost:3018", //fmx-device-coreServices-backend
+    "userHost": "http://localhost:30115", //fmx-usersCoreServices-backend
+    "communicationHost": "http://localhost:3020",//fmx-communication-coreServices
+    "feedbackUrl": "http://164.52.216.202/feedback/helpdesk" //
+}

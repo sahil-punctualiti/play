@@ -1,51 +1,17 @@
 <body>
-    <strong>Dear username,</strong>
+    <strong>Dear ${requestorName},</strong>
     <p>
-        We received a request to reset your password for your account. To ensure the security of your account, please use the following One-Time Password (OTP) to reset your password: 
+        We would like to inform you that your ticket ${ticketId} is ${status.statusName} 
+        status.statusType === "CLOSED" ? `<br>please provide your feedback on 
+        <br>
+        <a style="margin-left: 50%; margin-right: 50%;" href="https://google.com">here</a>
         <br>
         <br>
-        <table style="border-spacing: 100px 0px;">
-            <tr>
-                <td>
-                    row1
-                </td>
-                <td>
-                    row2
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    rowasdjadhajshd1
-                </td>
-                <td>
-                    row2
-                </td>
-            </tr>
-        </table>
-        <br>
-        <br>
-        <table style="border-spacing: 100px 0px;">
-            <tr>
-                <td>
-                    row1
-                </td>
-                <td>
-                    row2
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    rowasdjadhajshd1
-                </td>
-                <td>
-                    row2
-                </td>
-            </tr>
-        </table>
+        ${ticketHtmlTable}
         <br>
         <br>
         Regards,
         <br>
         Helpdesk Team
     </p>
-</body>
+</body>   

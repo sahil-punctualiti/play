@@ -3,7 +3,7 @@ punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
                 pswd : arV03$y42 or arU03$y42
 gitPswd: 88********@sahil
-gitToken : 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      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
+gitToken :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
 
 setenforce 0
 
@@ -56,8 +56,9 @@ netstat -anp | grep "3134"
 lsof -i -P -n | grep 3004
 
 client=knightfrank node index.js
-client=knightfrank pm2 start index.js --name knightfrank_adminMasterApi --update-env
+client=knightfrank pm2 start index.js --name adminMasterApi --update-env
 
 
 client=knightfrank npm start -- --port=3010
-client=knightfrank pm2 start npm --name fmxLandingFrontenf -- start -- --port=3101
+client=knightfrank pm2 start npm --name knightfrank_hellpdeskFrontend -- start -- --port=3101
+client=knightfrank pm2 restart 29

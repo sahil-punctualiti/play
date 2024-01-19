@@ -1,0 +1,96 @@
+{
+    "knightfrank": {
+        "accountId": "b2dc9e12-7a2f-11ea-8001-knightfrank",
+        "adminMaster": {
+            "adminMasterCoreApi": {
+                "host": "https://knightfrank.punctualiti.tech/masters-core-apis",
+                "port": 3121,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "adminMasterApi": {
+                "host": "https://knightfrank.punctualiti.tech/masters-apis",
+                "port": 3122
+            }
+        },
+        "userMaster": {
+            "userCoreApi": {
+                "host": "https://knightfrank.punctualiti.tech/user-core-apis",
+                "port": 3123,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "userApi": {
+                "host": "https://knightfrank.punctualiti.tech/user-apis",
+                "port": 3124
+            }
+        },
+        "formBuilder": {
+            "formBuilderCoreApi": {
+                "host": "https://knightfrank.punctualiti.tech/formbuilder-core-apis",
+                "port": 3125,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "formBuilderApi": {
+                "host": "https://knightfrank.punctualiti.tech/formbuilder-apis",
+                "port": 3126
+            }
+        },
+        "ssoLogin": {
+            "ssoLoginApi": {
+                "host": "https://knightfrank.punctualiti.tech/sso-login",
+                "port": 3127
+            }
+        },
+        "communication": {
+            "communicationCoreApi": {
+                "host": "https://knightfrank.punctualiti.tech/communication-core-apis",
+                "port": 3128,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            }
+        },
+        "device": {
+            "deviceCoreApi": {
+                "host": "https://knightfrank.punctualiti.tech/device-core-apis",
+                "port": 3129,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "deviceApi": {
+                "host": "https://knightfrank.punctualiti.tech/device-apis",
+                "port": 3130
+            }
+        },
+        "cronServices": {
+            "cronServicesApi": {
+                "host": "https://knightfrank.punctualiti.tech/cron-services",
+                "port": 3131
+            }
+        },
+        "helpdesk": {
+            "helpdeskCoreApi": {
+                "host": "https://knightfrank.punctualiti.tech/helpdesk-core-apis",
+                "port": 3132,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "helpdeskApi": {
+                "host": "https://knightfrank.punctualiti.tech/helpdesk-apis",
+                "port": 3133
+            },
+            "helpdeskAppApi": {
+                "host": "https://knightfrank.punctualiti.tech/helpdesk-app-apis",
+                "port": 3134
+            },
+            "helpdeskSupportingApi": {
+                "host": "https://knightfrank.punctualiti.tech/helpdesk-support-apis",
+                "port": 3135
+            }
+        },
+        "feedback": {
+            "feedbackApi": {
+                "host": "https://knightfrank.punctualiti.tech/feedback-apis",
+                "port": 3136
+            },
+            "feedbackFrontend": {
+                "host": "https://knightfrank.punctualiti.tech/feedback/helpdesk"
+            }
+        }
+    }
+}

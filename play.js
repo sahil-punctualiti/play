@@ -1,8 +1,9 @@
-const crypto = require('crypto');
-
-function md5Hash(input) {
-    const md5 = crypto.createHash('md5');
-    md5.update(input);
-    return md5.digest('hex');
+let a = {
+    l:1
 }
-console.log(md5Hash("tenantPass"));
+
+let b= {
+    o:a["l"] || 9
+}
+
+console.log(b);

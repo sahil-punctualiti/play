@@ -1,7 +1,70 @@
-"0a16be88-f4fb-4e82-9cb3-aaf640da3c88",
-"55d099f0-7a4e-11ea-8001-005056991d95",
-"58485514-7a4e-11ea-8001-005056991d95",
-"5c170c82-7a4e-11ea-8001-005056991d95",
-"b30e0c47-7a36-11ea-8001-005056991d95",
-"e6d8f501-7a3d-11ea-8001-005056991d95",
-"fec7da6b-e620-11ea-a3a2-005056991d95"
+[
+    {
+        "groupId": "9ae0513d-ff44-4276-9acb-4b3e87f34d21",
+        "createdDate": {
+            "timestamp": {
+                "$numberLong": "1701238606000"
+            },
+            "ISODate": "Wed Nov 29 2023 11:46:46 GMT+0530 (India Standard Time)"
+        },
+        "status": "ACTIVE",
+        "siteDetails": {
+            "siteId": "9b41f368-8883-4e1a-b3d7-b12c48e5cf08",
+            "siteName": "Greater Noida"
+        },
+        "groupName": "Solar Technician L3",
+        "groupModule": "HELPDESK",
+        "__v": 0
+    },
+    {
+        "groupId": "0f7cebec-1293-4834-aa82-1705f2736721",
+        "createdDate": {
+            "timestamp": {
+                "$numberLong": "1701238606000"
+            },
+            "ISODate": "Wed Nov 29 2023 11:46:46 GMT+0530 (India Standard Time)"
+        },
+        "status": "ACTIVE",
+        "siteDetails": {
+            "siteId": "9b41f368-8883-4e1a-b3d7-b12c48e5cf08",
+            "siteName": "Greater Noida"
+        },
+        "groupName": "Solar Technician L2",
+        "groupModule": "HELPDESK",
+        "__v": 0
+    },
+    {
+        "groupId": "542ac16f-5569-4b80-858b-805374471021",
+        "createdDate": {
+            "timestamp": {
+                "$numberLong": "1701238606000"
+            },
+            "ISODate": "Wed Nov 29 2023 11:46:46 GMT+0530 (India Standard Time)"
+        },
+        "status": "ACTIVE",
+        "siteDetails": {
+            "siteId": "9b41f368-8883-4e1a-b3d7-b12c48e5cf08",
+            "siteName": "Greater Noida"
+        },
+        "groupName": "Solar Technician L1",
+        "groupModule": "HELPDESK",
+        "__v": 0
+    },
+    {
+        "groupId": "78c8a8e7-90d0-4453-9009-646cfaccff21",
+        "createdDate": {
+            "timestamp": {
+                "$numberLong": "1701238606000"
+            },
+            "ISODate": "Wed Nov 29 2023 11:46:46 GMT+0530 (India Standard Time)"
+        },
+        "status": "ACTIVE",
+        "siteDetails": {
+            "siteId": "9b41f368-8883-4e1a-b3d7-b12c48e5cf08",
+            "siteName": "Greater Noida"
+        },
+        "groupName": "Solar Technician L0",
+        "groupModule": "HELPDESK",
+        "__v": 0
+    }
+]

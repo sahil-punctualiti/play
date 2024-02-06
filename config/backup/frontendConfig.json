@@ -1,0 +1,63 @@
+{
+    "knightfrank": {
+        "image": "https://fmx-bucket.s3.ap-south-1.amazonaws.com/1705395098938_Knight_Frank_logo_PNG6.png",
+        "accountId": "b2dc9e12-7a2f-11ea-8001-knightfrank",
+        "host": "https://knightfrank.punctualiti.tech",
+        "dashboard": {
+            "port": 3100
+        },
+        "helpdesk": {
+            "port": 3101
+        },
+        "helpdeskFeedback": {
+            "port": 3102
+        }
+    },
+    "impressions": {
+        "image": "https://fmx-bucket.s3.ap-south-1.amazonaws.com/1705395098938_Knight_Frank_logo_PNG6.png",
+        "accountId": "b2dc9e12-7a2f-11ea-8001-impressions",
+        "host": "https://impressions.punctualiti.tech",
+        "dashboard": {
+            "port": 3200
+        },
+        "helpdesk": {
+            "port": 3201
+        },
+        "helpdeskFeedback": {
+            "port": 3202
+        }
+    },
+    "dlf": {
+        "image": "https://fmx-bucket.s3.ap-south-1.amazonaws.com/1706610841675_DLF.NS_BIG.png",
+        "accountId": "ebe05196-1890-45db-87e3-3a0827abdafc",
+        "host": "https://dlf.punctualiti.tech",
+        "dashboard": {
+            "port": 3300
+        },
+        "helpdesk": {
+            "port": 3301
+        }
+    },
+    "vertiv": {
+        "image": "",
+        "accountId": "36469559-a78b-4a6f-88a1-01b326f68756",
+        "host": "https://vertiv.punctualiti.tech",
+        "dashboard": {
+            "port": 3400
+        },
+        "helpdesk": {
+            "port": 3401
+        }
+    },
+    "prozone": {
+        "image": "",
+        "accountId": "ee214886-405d-430c-8029-c9791fbb08c6",
+        "host": "https://prozone.punctualiti.tech",
+        "dashboard": {
+            "port": 3500
+        },
+        "helpdesk": {
+            "port": 3501
+        }
+    }
+}

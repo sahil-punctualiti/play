@@ -1,184 +1,164 @@
 {
-    "socciety_genral": {
-        "accountId": "sggsc",
-        "adminMaster": {
-            "adminMasterCoreApi": {
-                "host": "https://sggsc.punctualiti.tech/masters-core-apis",
-                "port": 3021,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+  "ticketFormId": "5db8a1fe-d315-4dcd-b405-776cb3c4a829",
+  "siteId": "69abb026-b1b0-4849-915e-0d54914a34e5",
+  "steps": [
+    {
+      "stepId": "03fef5d2-c325-49f4-acd3-7541ee512827",
+      "stepNumber": 2,
+      "sections": [
+        {
+          "sectionId": "cd2a9244-9638-4133-8e12-96a18566a04a",
+          "sectionTitle": "Location Details",
+          "sectionNumber": 1,
+          "sectionDescription": "Add some basic information related to the location",
+          "sectionField": [
+            {
+              "fieldId": "d05b2dcb-26ca-4428-85dd-4375051da114",
+              "fieldType": "dropDown",
+              "label": "Site",
+              "displayLabel": "Site",
+              "placeHolder": "",
+              "description": "",
+              "visible": true,
+              "updatable": true,
+              "immutable": true,
+              "required": true,
+              "fieldNumber": 1,
+              "input": {
+                "type": "master",
+                "master": "SITE"
+              }
             },
-            "adminMasterApi": {
-                "host": "https://sggsc.punctualiti.tech/masters-apis",
-                "port": 3022
+            {
+              "fieldId": "c94fa7b7-cba7-45c7-8d42-13d21c9e49bd",
+              "fieldType": "dropDown",
+              "label": "Building",
+              "displayLabel": "Building",
+              "placeHolder": "Select Building",
+              "description": "",
+              "visible": true,
+              "updatable": true,
+              "immutable": true,
+              "required": true,
+              "fieldNumber": 2,
+              "input": {
+                "type": "master",
+                "master": "BUILDING",
+                "parent": "SITE"
+              }
             }
-        },
-        "userMaster": {
-            "userCoreApi": {
-                "host": "https://sggsc.punctualiti.tech/user-core-apis",
-                "port": 3023,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "userApi": {
-                "host": "https://sggsc.punctualiti.tech/user-apis",
-                "port": 3024
-            }
-        },
-        "formBuilder": {
-            "formBuilderCoreApi": {
-                "host": "https://sggsc.punctualiti.tech/formbuilder-core-apis",
-                "port": 3025,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "formBuilderApi": {
-                "host": "https://sggsc.punctualiti.tech/formbuilder-apis",
-                "port": 3026
-            }
-        },
-        "ssoLogin": {
-            "ssoLoginApi": {
-                "host": "https://sggsc.punctualiti.tech/sso-login",
-                "port": 3027
-            }
-        },
-        "communication": {
-            "communicationCoreApi": {
-                "host": "https://sggsc.punctualiti.tech/communication-core-apis",
-                "port": 3028,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            }
-        },
-        "device": {
-            "deviceCoreApi": {
-                "host": "https://sggsc.punctualiti.tech/device-core-apis",
-                "port": 3029,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "deviceApi": {
-                "host": "https://sggsc.punctualiti.tech/device-apis",
-                "port": 3030
-            }
-        },
-        "cronServices": {
-            "cronServicesApi": {
-                "host": "https://sggsc.punctualiti.tech/cron-services",
-                "port": 3031
-            }
-        },
-        "helpdesk": {
-            "helpdeskCoreApi": {
-                "host": "https://sggsc.punctualiti.tech/helpdesk-core-apis",
-                "port": 3032,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "helpdeskApi": {
-                "host": "https://sggsc.punctualiti.tech/helpdesk-apis",
-                "port": 3033
-            },
-            "helpdeskAppApi": {
-                "host": "https://sggsc.punctualiti.tech/helpdesk-app-apis",
-                "port": 3034
-            },
-            "helpdeskSupportingApi": {
-                "host": "https://sggsc.punctualiti.tech/helpdesk-support-apis",
-                "port": 3035
-            }
-        },
-        "feedback": {
-            "feedbackApi": {
-                "host": "https://sggsc.punctualiti.tech/feedback/helpdesk",
-                "port": 3036
-            }
+          ]
         }
+      ]
     },
-    "knight_frank": {
-        "accountId": "b2dc9e12-7a2f-11ea-8001-knightfrank",
-        "adminMaster": {
-            "adminMasterCoreApi": {
-                "host": "https://knightfrank.punctualiti.tech/masters-core-apis",
-                "port": 3121,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+    {
+      "stepId": "1d05d829-812b-4014-bcd0-6343a3c50432",
+      "stepNumber": 3,
+      "sections": [
+        {
+          "sectionId": "7eeffa61-7f75-4adf-8f88-5875020e288c",
+          "sectionTitle": "Issue Details",
+          "sectionNumber": 1,
+          "sectionDescription": "Add some basic information related to the issue",
+          "sectionField": [
+            {
+              "fieldId": "89b55afa-b4d5-4199-bf39-5f473d577e6c",
+              "fieldType": "dropDown",
+              "label": "Service Issue",
+              "displayLabel": "Service Issue",
+              "placeHolder": "Select Service Issue",
+              "description": "",
+              "visible": true,
+              "updatable": true,
+              "immutable": true,
+              "required": true,
+              "fieldNumber": 5,
+              "input": {
+                "type": "master",
+                "master": "ISSUE",
+                "parent": "SUB_CATEGORY"
+              }
             },
-            "adminMasterApi": {
-                "host": "https://knightfrank.punctualiti.tech/masters-apis",
-                "port": 3122
-            }
-        },
-        "userMaster": {
-            "userCoreApi": {
-                "host": "https://knightfrank.punctualiti.tech/user-core-apis",
-                "port": 3123,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            {
+              "fieldId": "76927b88-169e-4e53-ba8e-fd2deb393686",
+              "fieldType": "textArea",
+              "label": "Comment",
+              "displayLabel": "Description",
+              "placeHolder": "Enter description",
+              "description": "in case you selec service issue others. it helpfull to provide description",
+              "visible": true,
+              "updatable": true,
+              "immutable": false,
+              "required": false,
+              "fieldNumber": 6,
+              "input": {
+                "type": "manual",
+                "characterLimit": {
+                  "minimum": 3,
+                  "maximum": 200
+                }
+              }
             },
-            "userApi": {
-                "host": "https://knightfrank.punctualiti.tech/user-apis",
-                "port": 3124
+            {
+              "fieldId": "a5192af7-e526-4a7a-b33b-d4e3a30a1653",
+              "fieldType": "fileUpload",
+              "label": "Attachment",
+              "displayLabel": "Upload Images",
+              "placeHolder": "",
+              "description": "",
+              "visible": true,
+              "updatable": true,
+              "immutable": false,
+              "required": false,
+              "fieldNumber": 9,
+              "input": {
+                "types": [
+                  "Image"
+                ],
+                "format": [
+                  ".PNG",
+                  ".JPG",
+                  ".JPEG"
+                ],
+                "fileLimit": {
+                  "minimum": 1,
+                  "maximum": 2
+                },
+                "fileSizeLimit": {
+                  "type": "MB",
+                  "minimum": 0,
+                  "maximum": 20
+                }
+              }
             }
-        },
-        "formBuilder": {
-            "formBuilderCoreApi": {
-                "host": "https://knightfrank.punctualiti.tech/formbuilder-core-apis",
-                "port": 3125,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "formBuilderApi": {
-                "host": "https://knightfrank.punctualiti.tech/formbuilder-apis",
-                "port": 3126
-            }
-        },
-        "ssoLogin": {
-            "ssoLoginApi": {
-                "host": "https://knightfrank.punctualiti.tech/sso-login",
-                "port": 3127
-            }
-        },
-        "communication": {
-            "communicationCoreApi": {
-                "host": "https://knightfrank.punctualiti.tech/communication-core-apis",
-                "port": 3128,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            }
-        },
-        "device": {
-            "deviceCoreApi": {
-                "host": "https://knightfrank.punctualiti.tech/device-core-apis",
-                "port": 3129,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "deviceApi": {
-                "host": "https://knightfrank.punctualiti.tech/device-apis",
-                "port": 3130
-            }
-        },
-        "cronServices": {
-            "cronServicesApi": {
-                "host": "https://knightfrank.punctualiti.tech/cron-services",
-                "port": 3131
-            }
-        },
-        "helpdesk": {
-            "helpdeskCoreApi": {
-                "host": "https://knightfrank.punctualiti.tech/helpdesk-core-apis",
-                "port": 3132,
-                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
-            },
-            "helpdeskApi": {
-                "host": "https://knightfrank.punctualiti.tech/helpdesk-apis",
-                "port": 3133
-            },
-            "helpdeskAppApi": {
-                "host": "https://knightfrank.punctualiti.tech/helpdesk-app-apis",
-                "port": 3134
-            },
-            "helpdeskSupportingApi": {
-                "host": "https://knightfrank.punctualiti.tech/helpdesk-support-apis",
-                "port": 3135
-            }
-        },
-        "feedback": {
-            "feedbackApi": {
-                "host": "https://knightfrank.punctualiti.tech/feedback/helpdesk",
-                "port": 3136
-            }
+          ]
         }
+      ]
     }
+  ],
+  "status": "ACTIVE",
+  "createdBy": {
+    "userName": "NA"
+  },
+  "ticketFormFor": "CLIENT",
+  "ticketCounter": 0,
+  "ticketViewConfig": {
+    "Floor": false,
+    "Room": false,
+    "Category": false,
+    "SubCategory": false,
+    "Requestor": true,
+    "IssueType": false,
+    "TicketType": false,
+    "IncidentClassification": false
+  },
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1706094705634"
+    },
+    "isoDate": {
+      "$date": "2024-01-24T11:11:45.634Z"
+    }
+  },
+  "__v": 0
 }

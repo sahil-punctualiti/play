@@ -1,173 +1,36 @@
 {
-    "userId": "0004b5e4-5420-11eb-ab03-005056991d96",
-    "createdDate": {
-        "timestamp": {
-            "$numberLong": "1610378198000"
-        },
-        "ISODate": "Mon Jan 11 2021 20:46:38 GMT+0530 (India Standard Time)"
+    "subCategoryId": "3ee5f02e-460e-40a0-b744-ee47348a94e0",
+    "subCategoryName": "Complaint",
+    "category": {
+      "categoryId": "b667eadc-b2b8-4698-bb7b-ee2f43daaf27",
+      "categoryName": "Complaint"
     },
     "status": "ACTIVE",
-    "userDetails": {
-        "name": "Admin3",
-        "mobile": "NA",
-        "email": "test@admin1.com",
-        "company": "SATTVA",
-        "employeeId": "EMP-1234"
+    "createdBy": {
+      "userId": "aeaca2d6-b462-4ddc-a3f1-08146310f45e",
+      "userName": "dlfsm"
     },
-    "loginDetails": {
-        "loginSource": [
-            "CLIENT-WEB"
-        ],
-        "userName": "admin3",
-        "passwordHash": "202cb962ac59075b964b07152d234b70",
-        "loginMode": "USERNAME_PASSWORD"
+    "createdDate": {
+      "epochDate": 1702990511744,
+      "isoDate": {
+        "$date": "2023-12-19T12:55:11.744Z"
+      }
     },
-    "resourceAccess": {
-        "acctounts": [
-            {
-                "resourceId": "31792810-ee89-48b8-9caa-dlf",
-                "accessType": "ALL",
-                "accessList": []
-            }
-        ],
-        "vendors": [],
-        "tenant": [
-            {
-                "resourceId": "6e762556-2248-410c-b435-4bbdcbfd5e07",
-                "accessType": "ALL",
-                "accessList": []
-            },
-            {
-                "resourceId": "511a9dfa-716d-4c2a-af1c-73146da4cfa1",
-                "accessType": "ALL",
-                "accessList": []
-            }
-        ],
-        "sites": [
-            {
-                "resourceId": "9da3c5c3-d5b7-4d0a-8056-55e7fb41667b",
-                "accessType": "ALL",
-                "accessList": [],
-                "_id": {
-                    "$oid": "657c2cf334ea6675aec311ec"
-                }
-            }
-        ],
-        "areas": [],
-        "assets": []
-    },
-    "modulesAccess": {
-        "vms": [
-            {
-                "siteId": "9da3c5c3-d5b7-4d0a-8056-55e7fb41667b",
-                "userRole": "CLIENT_ADMIN",
-                "navigationAccess": "ADMIN",
-                "accessList": [
-                    "getUserAccessDetails",
-                    "getMySites",
-                    "getDashboardSummary",
-                    "gateList",
-                    "updateGateStatus",
-                    "addTerminal",
-                    "deactivateTerminal",
-                    "activateTerminal",
-                    "terminalList",
-                    "getCheatCode",
-                    "addCheatCode",
-                    "updateCheatCode",
-                    "addOtpConfig",
-                    "updateOtpConfig",
-                    "getOtpConfig",
-                    "updateOtpConfig1",
-                    "updateTerminalStatus",
-                    "updateTerminalDetails",
-                    "getSiteCheatCodes",
-                    "updateSiteCheatCodes",
-                    "updateOtpConfig",
-                    "summary",
-                    "getVisits",
-                    "getVisitDetails",
-                    "approveVisit",
-                    "rejectVisit",
-                    "getVisitorHistory",
-                    "getBlacklistedVisitors",
-                    "unblockVisitor",
-                    "getTenantsT",
-                    "getTenantUsersT",
-                    "getFilters",
-                    "addRepeatVisitor",
-                    "getRepeatVisitors",
-                    "repeatVisitDetails",
-                    "approveRepeatVisit",
-                    "rejectRepeatVisit",
-                    "repeatVisitorPassDetails",
-                    "inviteVisitor",
-                    "getInvitedVisitors",
-                    "inviteVisitDetails",
-                    "submitMobileNumber",
-                    "submitOTP",
-                    "getTenants",
-                    "getTenantUsers",
-                    "submitVisit",
-                    "submitTenantVisit",
-                    "uploadImage",
-                    "uploadImageFile",
-                    "getVisitPassDetails",
-                    "checkInPass"
-                ]
-            }
-        ],
-        "adminMaster": [
-            {
-                "siteId": "9da3c5c3-d5b7-4d0a-8056-55e7fb41667b",
-                "userRole": "DEFAULT",
-                "navigationAccess": "DEFAULT",
-                "accessList": [
-                    "getAccountList",
-                    "getAccountDetails",
-                    "getAddressDetails",
-                    "getSiteList",
-                    "getSiteDetails",
-                    "getAssetList",
-                    "getAssetDetails",
-                    "getVendorList",
-                    "getVendorDetails",
-                    "getTenantList",
-                    "getAllActiveTenantList",
-                    "getTenantDetails",
-                    "getTenantGroupList",
-                    "getTenantGroupDetails",
-                    "getAreaList",
-                    "getAreaDetails",
-                    "getAllActiveAreaList",
-                    "uploadFile",
-                    "uploadFiles"
-                ]
-            }
-        ],
-        "userMaster": [
-            {
-                "siteId": "9da3c5c3-d5b7-4d0a-8056-55e7fb41667b",
-                "userRole": "CLIENT_ADMIN",
-                "navigationAccess": "ADMIN",
-                "accessList": [
-                    "getEmployeeId",
-                    "getUserRole",
-                    "addUser",
-                    "updateUserDetails",
-                    "getAllUsers",
-                    "getUserDetails",
-                    "createUserGroup",
-                    "addUserToGroups",
-                    "removeUserFromUserGroup",
-                    "getUserGroups",
-                    "getGroupUsers",
-                    "getUserGroupsOfUser",
-                    "addNewUserFromPhp"
-                ]
-            }
-        ]
-    },
-    "userGroups": [],
+    "log": [
+      {
+        "logType": "CREATE",
+        "logData": "created subCategory",
+        "logUser": {
+          "userId": "aeaca2d6-b462-4ddc-a3f1-08146310f45e",
+          "userName": "dlfsm"
+        },
+        "logDate": {
+          "epochDate": 1702990511744,
+          "isoDate": {
+            "$date": "2023-12-19T12:55:11.744Z"
+          }
+        }
+      }
+    ],
     "__v": 0
-}
+  }

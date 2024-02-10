@@ -3,7 +3,7 @@ punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
                 pswd : arV03$y42 or arU03$y42
 gitPswd: 88********@sahil
-gitToken :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
+gitToken :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
 
 setenforce 0
 
@@ -26,14 +26,14 @@ mongodb : {userName: "adminM", pswd:"464386bf76b9ac39d3ac"}
 git init
 git remote add origin https://githubRepoLink.com
     
-cat /etc/nginx/nginx.conf
+cat /etc/nginx/nginx.CCTV
 
 /usr/local/bin/pm2
 
 
 sudo dnf module list nodejs
 
-sudo dnf module enable nodejs:16
+sudo dnf module enable nodejs:20
 
 sudo dnf install nodejs
 

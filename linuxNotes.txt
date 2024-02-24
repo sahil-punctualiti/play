@@ -48,7 +48,7 @@ dnf install redis -y
 
 8850500669Sahil@
 mysql -u root -p
-mysql -u root -p punctual_impressions_master < punctual_impressions_master.sql
+mysql -u root -p punctual_matrix_master < punctual_matrix_master_20240223093828.sql
 
 
 pm2 start npm --name fmxLandingFrontenf -- start --port 3000

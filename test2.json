@@ -1,164 +1,158 @@
 {
-  "ticketFormId": "5db8a1fe-d315-4dcd-b405-776cb3c4a829",
-  "siteId": "69abb026-b1b0-4849-915e-0d54914a34e5",
-  "steps": [
+  "_id": {
+    "$oid": "65b8c795a892ec128daa3d9b"
+  },
+  "groupId": "9fcae64f-9c4e-46b6-962d-f433bc15c0b0",
+  "createdDate": {
+    "timestamp": {
+      "$numberLong": "1632310528000"
+    },
+    "ISODate": "Wed Sep 22 2021 17:05:28 GMT+0530 (India Standard Time)"
+  },
+  "status": "ACTIVE",
+  "siteDetails": [
     {
-      "stepId": "03fef5d2-c325-49f4-acd3-7541ee512827",
-      "stepNumber": 2,
-      "sections": [
-        {
-          "sectionId": "cd2a9244-9638-4133-8e12-96a18566a04a",
-          "sectionTitle": "Location Details",
-          "sectionNumber": 1,
-          "sectionDescription": "Add some basic information related to the location",
-          "sectionField": [
-            {
-              "fieldId": "d05b2dcb-26ca-4428-85dd-4375051da114",
-              "fieldType": "dropDown",
-              "label": "Site",
-              "displayLabel": "Site",
-              "placeHolder": "",
-              "description": "",
-              "visible": true,
-              "updatable": true,
-              "immutable": true,
-              "required": true,
-              "fieldNumber": 1,
-              "input": {
-                "type": "master",
-                "master": "SITE"
-              }
-            },
-            {
-              "fieldId": "c94fa7b7-cba7-45c7-8d42-13d21c9e49bd",
-              "fieldType": "dropDown",
-              "label": "Building",
-              "displayLabel": "Building",
-              "placeHolder": "Select Building",
-              "description": "",
-              "visible": true,
-              "updatable": true,
-              "immutable": true,
-              "required": true,
-              "fieldNumber": 2,
-              "input": {
-                "type": "master",
-                "master": "BUILDING",
-                "parent": "SITE"
-              }
-            }
-          ]
-        }
-      ]
+      "siteId": "69abb026-b1b0-4849-915e-0d54914a34e5",
+      "siteName": "THC"
     },
     {
-      "stepId": "1d05d829-812b-4014-bcd0-6343a3c50432",
-      "stepNumber": 3,
-      "sections": [
-        {
-          "sectionId": "7eeffa61-7f75-4adf-8f88-5875020e288c",
-          "sectionTitle": "Issue Details",
-          "sectionNumber": 1,
-          "sectionDescription": "Add some basic information related to the issue",
-          "sectionField": [
-            {
-              "fieldId": "89b55afa-b4d5-4199-bf39-5f473d577e6c",
-              "fieldType": "dropDown",
-              "label": "Service Issue",
-              "displayLabel": "Service Issue",
-              "placeHolder": "Select Service Issue",
-              "description": "",
-              "visible": true,
-              "updatable": true,
-              "immutable": true,
-              "required": true,
-              "fieldNumber": 5,
-              "input": {
-                "type": "master",
-                "master": "ISSUE",
-                "parent": "SUB_CATEGORY"
-              }
-            },
-            {
-              "fieldId": "76927b88-169e-4e53-ba8e-fd2deb393686",
-              "fieldType": "textArea",
-              "label": "Comment",
-              "displayLabel": "Description",
-              "placeHolder": "Enter description",
-              "description": "in case you selec service issue others. it helpfull to provide description",
-              "visible": true,
-              "updatable": true,
-              "immutable": false,
-              "required": false,
-              "fieldNumber": 6,
-              "input": {
-                "type": "manual",
-                "characterLimit": {
-                  "minimum": 3,
-                  "maximum": 200
-                }
-              }
-            },
-            {
-              "fieldId": "a5192af7-e526-4a7a-b33b-d4e3a30a1653",
-              "fieldType": "fileUpload",
-              "label": "Attachment",
-              "displayLabel": "Upload Images",
-              "placeHolder": "",
-              "description": "",
-              "visible": true,
-              "updatable": true,
-              "immutable": false,
-              "required": false,
-              "fieldNumber": 9,
-              "input": {
-                "types": [
-                  "Image"
-                ],
-                "format": [
-                  ".PNG",
-                  ".JPG",
-                  ".JPEG"
-                ],
-                "fileLimit": {
-                  "minimum": 1,
-                  "maximum": 2
-                },
-                "fileSizeLimit": {
-                  "type": "MB",
-                  "minimum": 0,
-                  "maximum": 20
-                }
-              }
-            }
-          ]
-        }
-      ]
+      "siteId": "cc3d15d0-57aa-429b-9a03-0e2a8716b9eb",
+      "siteName": "B8"
+    },
+    {
+      "siteId": "0bda37f6-645d-11eb-9ab8-005056991178",
+      "siteName": "Cyber Park"
+    },
+    {
+      "siteId": "0f707976-73f4-11ee-8989-0050569907d8",
+      "siteName": "Cluster 1A 1B 1C"
+    },
+    {
+      "siteId": "13be8f09-fba0-11e9-a206-1c1b0dc1b24f",
+      "siteName": "DLF Center"
+    },
+    {
+      "siteId": "1f84a317-ec21-11e9-b831-00185131e9dd",
+      "siteName": "B9"
+    },
+    {
+      "siteId": "23fd4dee-0620-4a33-b221-e571084a5e00",
+      "siteName": "Tech Park"
+    },
+    {
+      "siteId": "25bb1fd3-882a-11e9-b981-00185131e9dd",
+      "siteName": "Plaza"
+    },
+    {
+      "siteId": "3000d8e6-966d-11e9-978d-00185131e9dd",
+      "siteName": "B5"
+    },
+    {
+      "siteId": "310ea7d1-f708-11e9-b0d7-00185131e9dd",
+      "siteName": "Cyber Hub"
+    },
+    {
+      "siteId": "39626040-ec1c-11e9-b831-00185131e9dd",
+      "siteName": "B14"
+    },
+    {
+      "siteId": "4c5adcbd-ef45-11e9-bd3a-00185131e9dd",
+      "siteName": "Square"
+    },
+    {
+      "siteId": "510b3bbb-73f4-11ee-8989-0050569907d8",
+      "siteName": "Cluster 2 3 8"
+    },
+    {
+      "siteId": "532fc3b0-f6f9-11e9-b0d7-00185131e9dd",
+      "siteName": "B8"
+    },
+    {
+      "siteId": "57cfe961-73f4-11ee-8989-0050569907d8",
+      "siteName": "Cluster 5 7 10"
+    },
+    {
+      "siteId": "5d03224c-73f4-11ee-8989-0050569907d8",
+      "siteName": "Cluster 9A 9B 4"
+    },
+    {
+      "siteId": "60849ded-73f4-11ee-8989-0050569907d8",
+      "siteName": "Cluster 12 12B"
+    },
+    {
+      "siteId": "6416058a-73f4-11ee-8989-0050569907d8",
+      "siteName": "Cluster 14 15"
+    },
+    {
+      "siteId": "69f0b213-8c2c-11e9-969d-00185131e9dd",
+      "siteName": "B10"
+    },
+    {
+      "siteId": "75220b86-8299-11e9-b981-00185131e9dd",
+      "siteName": "Infinity"
+    },
+    {
+      "siteId": "7aa05209-fa42-11e9-b0d7-00185131e9dd",
+      "siteName": "Gateway Tower"
+    },
+    {
+      "siteId": "8ff8df64-f487-11e9-9832-00185131e9dd",
+      "siteName": "Center Court"
+    },
+    {
+      "siteId": "97dc002c-ef44-11e9-bd3a-00185131e9dd",
+      "siteName": "SEZ Silokhera"
+    },
+    {
+      "siteId": "b312d300-ec22-11e9-b831-00185131e9dd",
+      "siteName": "IBM Silokhera"
+    },
+    {
+      "siteId": "b8deff0b-8c2c-11e9-969d-00185131e9dd",
+      "siteName": "Cybergreen"
+    },
+    {
+      "siteId": "dbbc08b5-67f0-11e9-bb18-00185131e9dd",
+      "siteName": "B7"
+    },
+    {
+      "siteId": "de234c5a-a5d7-11ec-a471-0050569907d8",
+      "siteName": "DLF Forum"
+    },
+    {
+      "siteId": "e374df57-8823-11e9-b981-00185131e9dd",
+      "siteName": "B6"
+    },
+    {
+      "siteId": "ee188acb-8c2e-11e9-969d-00185131e9dd",
+      "siteName": "Chandigarh"
+    },
+    {
+      "siteId": "f1877e3a-fb9e-11e9-a206-1c1b0dc1b24f",
+      "siteName": "MLCP BKSM"
+    },
+    {
+      "siteId": "f4360950-fa3f-11e9-b0d7-00185131e9dd",
+      "siteName": "Atria"
+    },
+    {
+      "siteId": "f744ac63-3e1a-492e-bfc7-45fdd54500e7",
+      "siteName": "Downtown"
+    },
+    {
+      "siteId": "fecc7a09-fb9d-11e9-a206-1c1b0dc1b24f",
+      "siteName": "MLCP SN"
+    },
+    {
+      "siteId": "ff5cc20e-ec0b-11e9-a15a-1c1b0dc1b24f",
+      "siteName": "Two Horizon Center"
+    },
+    {
+      "siteId": "4c4aa4eb-93b0-4866-951f-c3978546e873",
+      "siteName": "OHC"
     }
   ],
-  "status": "ACTIVE",
-  "createdBy": {
-    "userName": "NA"
-  },
-  "ticketFormFor": "CLIENT",
-  "ticketCounter": 0,
-  "ticketViewConfig": {
-    "Floor": false,
-    "Room": false,
-    "Category": false,
-    "SubCategory": false,
-    "Requestor": true,
-    "IssueType": false,
-    "TicketType": false,
-    "IncidentClassification": false
-  },
-  "createdDate": {
-    "epochDate": {
-      "$numberLong": "1706094705634"
-    },
-    "isoDate": {
-      "$date": "2024-01-24T11:11:45.634Z"
-    }
-  },
+  "groupName": "CRO",
+  "groupModule": "HELPDESK",
   "__v": 0
 }

@@ -1,3 +1,4 @@
-let filterQuery = { "modulesAccess.userMaster": { $size: 1 } }
-let updateQuery = { "$push": { "modulesAccess.userMaster.0.accessList": { "$each": ["addUsersToGroups", "checkGroupName"] } } }
+let a = "sahil@test.com"
 
+let b = a.split("@")[0]
+console.log(b);

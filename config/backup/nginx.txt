@@ -1,6 +1,6 @@
 # For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
+#   * Official English Documentation: http: //nginx.org/en/docs/
+#   * Official Russian Documentation: http: //nginx.org/ru/docs/
 
 user nginx;
 worker_processes auto;
@@ -257,6 +257,14 @@ server {
             proxy_pass http://127.0.0.1:3133/;
          }
 
+      location /fmx-vms-apis/ {
+           proxy_pass http://127.0.0.1:3134/;
+        }
+
+	location /vms/ {
+            proxy_pass http://127.0.0.1:3135/;
+         }
+
       location /helpdeskBuild/_next/ {
               alias /var/dev/helpdeskFrontend/knightfrank/.next/;
            }
@@ -418,6 +426,10 @@ server {
             proxy_pass http://127.0.0.1:3302/feedback/helpdesk;
 
         }
+
+        location /vms/ {
+           proxy_pass http://127.0.0.1:3303/;
+        }
         
 
       location /masters-core-apis/ {
@@ -484,24 +496,8 @@ server {
             proxy_pass http://127.0.0.1:3330/;
          }
 
-	location /1vms/ {
-           proxy_pass http://127.0.0.1:20690/;
-        }
-
-        location /1fmx-vms-apis/ {
-           proxy_pass http://127.0.0.1:20691/;
-        }
-
-	location /vms/ {
-           proxy_pass http://127.0.0.1:20019/;
-        }
-
-        location /fmx-vms-apis/ {
-           proxy_pass http://127.0.0.1:30117/;
-        }
-
       location /vms-core-apis/ {
-            proxy_pass http://127.0.0.1:20692/;
+            proxy_pass http://127.0.0.1:3331/;
          }
 
       location /vms-app-apis/ {
@@ -511,6 +507,10 @@ server {
       location /vms-terminal-app-apis/ {
             proxy_pass http://127.0.0.1:3333/;
          }
+
+      location /fmx-vms-apis/ {
+           proxy_pass http://127.0.0.1:3334/;
+        }
 
       location /helpdeskBuild/_next/ {
               alias /var/dev/helpdeskFrontend/dlf/.next/;
@@ -752,6 +752,345 @@ server {
 
       location /feedback/helpdesk/helpdeskBuild/_next/ {
               alias /var/dev/helpdeskFeedbackFrontend/prozone/.next/;
+           }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+   }
+   
+    server {
+        listen       443 ssl http2;
+        listen       [::]:443 ssl http2;
+        server_name  sggsc.punctualiti.tech;
+        #root         /usr/share/nginx/html;
+
+        ssl_certificate "/etc/fmx/certs/ssl/chain.crt";
+        ssl_certificate_key "/etc/fmx/certs/ssl/punctualiti.tech.key";
+
+       # location / {
+       #    proxy_pass http://127.0.0.1:4038;
+       # }
+
+
+	   location /helpdesk {
+           proxy_pass http://127.0.0.1:3601/helpdesk;
+        }
+
+	   location /feedback/helpdesk {
+            proxy_pass http://127.0.0.1:3602/feedback/helpdesk;
+
+        }
+        
+
+      location /masters-core-apis/ {
+            proxy_pass http://127.0.0.1:3000/;
+         }
+
+      location /masters-apis/ {
+            proxy_pass http://127.0.0.1:3001/;
+         }
+
+      location /user-core-apis/ {
+            proxy_pass http://127.0.0.1:3002/;
+         }
+
+      location /user-apis/ {
+            proxy_pass http://127.0.0.1:3003/;
+         }
+
+      location /communication-core-apis/ {
+           proxy_pass http://127.0.0.1:3004/;
+        }
+        
+   	location /sso-login/ {
+           proxy_pass http://127.0.0.1:3005/;
+        }
+
+      location /formbuilder-core-apis/ {
+           proxy_pass http://127.0.0.1:3621/;
+        }
+
+      location /formbuilder-apis/ {
+           proxy_pass http://127.0.0.1:3622/;
+        }
+
+      location /device-core-apis/ {
+           proxy_pass http://127.0.0.1:3623/;
+        }
+
+      location /device-apis/ {
+           proxy_pass http://127.0.0.1:3624/;
+        }
+
+      location /cron-services/ {
+           proxy_pass http://127.0.0.1:3625/;
+        }
+
+      location /helpdesk-core-apis/ {
+            proxy_pass http://127.0.0.1:3626/;
+         }
+
+      location /helpdesk-apis/ {
+            proxy_pass http://127.0.0.1:3627/;
+         }
+
+      location /helpdesk-app-apis/ {
+            proxy_pass http://127.0.0.1:3628/;
+         }
+
+      location /helpdesk-support-apis/ {
+            proxy_pass http://127.0.0.1:3629/;
+         }
+
+      location /feedback-apis/ {
+            proxy_pass http://127.0.0.1:3630/;
+         }
+
+      location /helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/sggsc/.next/;
+           }
+
+	   location /helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/sggsc/.next/;
+           }
+
+	   location /helpdesk/UserInfo/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/sggsc/.next/;
+           }
+
+      location /feedback/helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFeedbackFrontend/sggsc/.next/;
+           }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+   }
+
+   server {
+        listen       443 ssl http2;
+        listen       [::]:443 ssl http2;
+        server_name  pfl.punctualiti.tech;
+        #root         /usr/share/nginx/html;
+
+        ssl_certificate "/etc/fmx/certs/ssl/chain.crt";
+        ssl_certificate_key "/etc/fmx/certs/ssl/punctualiti.tech.key";
+
+       # location / {
+       #    proxy_pass http://127.0.0.1:4038;
+       # }
+
+
+	   location /helpdesk {
+           proxy_pass http://127.0.0.1:3701/helpdesk;
+        }
+
+	   location /feedback/helpdesk {
+            proxy_pass http://127.0.0.1:3702/feedback/helpdesk;
+
+        }
+        
+
+      location /masters-core-apis/ {
+            proxy_pass http://127.0.0.1:3000/;
+         }
+
+      location /masters-apis/ {
+            proxy_pass http://127.0.0.1:3001/;
+         }
+
+      location /user-core-apis/ {
+            proxy_pass http://127.0.0.1:3002/;
+         }
+
+      location /user-apis/ {
+            proxy_pass http://127.0.0.1:3003/;
+         }
+
+      location /communication-core-apis/ {
+           proxy_pass http://127.0.0.1:3004/;
+        }
+        
+   	location /sso-login/ {
+           proxy_pass http://127.0.0.1:3005/;
+        }
+
+      location /formbuilder-core-apis/ {
+           proxy_pass http://127.0.0.1:3721/;
+        }
+
+      location /formbuilder-apis/ {
+           proxy_pass http://127.0.0.1:3722/;
+        }
+
+      location /device-core-apis/ {
+           proxy_pass http://127.0.0.1:3723/;
+        }
+
+      location /device-apis/ {
+           proxy_pass http://127.0.0.1:3724/;
+        }
+
+      location /cron-services/ {
+           proxy_pass http://127.0.0.1:3725/;
+        }
+
+      location /helpdesk-core-apis/ {
+            proxy_pass http://127.0.0.1:3726/;
+         }
+
+      location /helpdesk-apis/ {
+            proxy_pass http://127.0.0.1:3727/;
+         }
+
+      location /helpdesk-app-apis/ {
+            proxy_pass http://127.0.0.1:3728/;
+         }
+
+      location /helpdesk-support-apis/ {
+            proxy_pass http://127.0.0.1:3729/;
+         }
+
+      location /feedback-apis/ {
+            proxy_pass http://127.0.0.1:3730/;
+         }
+
+      location /helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/pfl/.next/;
+           }
+
+	   location /helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/pfl/.next/;
+           }
+
+	   location /helpdesk/UserInfo/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/pfl/.next/;
+           }
+
+      location /feedback/helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFeedbackFrontend/pfl/.next/;
+           }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+   }
+
+   server {
+        listen       443 ssl http2;
+        listen       [::]:443 ssl http2;
+        server_name  camplusone.punctualiti.tech;
+        #root         /usr/share/nginx/html;
+
+        ssl_certificate "/etc/fmx/certs/ssl/chain.crt";
+        ssl_certificate_key "/etc/fmx/certs/ssl/punctualiti.tech.key";
+
+       # location / {
+       #    proxy_pass http://127.0.0.1:4038;
+       # }
+
+
+	   location /helpdesk {
+           proxy_pass http://127.0.0.1:3801/helpdesk;
+        }
+
+	   location /feedback/helpdesk {
+            proxy_pass http://127.0.0.1:3802/feedback/helpdesk;
+
+        }
+        
+
+      location /masters-core-apis/ {
+            proxy_pass http://127.0.0.1:3000/;
+         }
+
+      location /masters-apis/ {
+            proxy_pass http://127.0.0.1:3001/;
+         }
+
+      location /user-core-apis/ {
+            proxy_pass http://127.0.0.1:3002/;
+         }
+
+      location /user-apis/ {
+            proxy_pass http://127.0.0.1:3003/;
+         }
+
+      location /communication-core-apis/ {
+           proxy_pass http://127.0.0.1:3004/;
+        }
+        
+   	location /sso-login/ {
+           proxy_pass http://127.0.0.1:3005/;
+        }
+
+      location /formbuilder-core-apis/ {
+           proxy_pass http://127.0.0.1:3821/;
+        }
+
+      location /formbuilder-apis/ {
+           proxy_pass http://127.0.0.1:3822/;
+        }
+
+      location /device-core-apis/ {
+           proxy_pass http://127.0.0.1:3823/;
+        }
+
+      location /device-apis/ {
+           proxy_pass http://127.0.0.1:3824/;
+        }
+
+      location /cron-services/ {
+           proxy_pass http://127.0.0.1:3825/;
+        }
+
+      location /helpdesk-core-apis/ {
+            proxy_pass http://127.0.0.1:3826/;
+         }
+
+      location /helpdesk-apis/ {
+            proxy_pass http://127.0.0.1:3827/;
+         }
+
+      location /helpdesk-app-apis/ {
+            proxy_pass http://127.0.0.1:3828/;
+         }
+
+      location /helpdesk-support-apis/ {
+            proxy_pass http://127.0.0.1:3829/;
+         }
+
+      location /feedback-apis/ {
+            proxy_pass http://127.0.0.1:3830/;
+         }
+
+      location /helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/camplusone/.next/;
+           }
+
+	   location /helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/camplusone/.next/;
+           }
+
+	   location /helpdesk/UserInfo/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/camplusone/.next/;
+           }
+
+      location /feedback/helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFeedbackFrontend/camplusone/.next/;
            }
 
         error_page 404 /404.html;

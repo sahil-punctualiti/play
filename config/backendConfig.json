@@ -145,6 +145,10 @@
             "vmsTerminalAppApi": {
                 "host": "https://knightfrank.punctualiti.tech/vms-terminal-app-apis",
                 "port": 3133
+            },
+            "vmsApi": {
+                "host": "https://knightfrank.punctualiti.tech/vms-apis",
+                "port": 3134
             }
         }
     },
@@ -355,7 +359,7 @@
         "vms": {
             "vmsCoreApi": {
                 "host": "https://dlf.punctualiti.tech/vms-core-apis",
-                "port": 20692,
+                "port": 3331,
                 "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
             },
             "vmsAppApi": {
@@ -368,7 +372,7 @@
             },
             "vmsApi": {
                 "host": "https://dlf.punctualiti.tech/vms-apis",
-                "port": 20691
+                "port": 3334
             }
         }
     },
@@ -562,9 +566,9 @@
             }
         }
     },
-    "socgen": {
+    "sggsc": {
         "accountId": "b2dc9e12-7a2f-11ea-8001-005056991d95",
-        "accountHost": "https://socgen.punctualiti.tech",
+        "accountHost": "https://sggsc.punctualiti.tech",
         "adminMaster": {
             "adminMasterCoreApi": {
                 "host": "https://accounts.punctualiti.tech/masters-core-apis",
@@ -602,58 +606,373 @@
         },
         "formBuilder": {
             "formBuilderCoreApi": {
-                "host": "https://socgen.punctualiti.tech/formbuilder-core-apis",
+                "host": "https://sggsc.punctualiti.tech/formbuilder-core-apis",
                 "port": 3621,
                 "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
             },
             "formBuilderApi": {
-                "host": "https://socgen.punctualiti.tech/formbuilder-apis",
+                "host": "https://sggsc.punctualiti.tech/formbuilder-apis",
                 "port": 3622
             }
         },
         "device": {
             "deviceCoreApi": {
-                "host": "https://socgen.punctualiti.tech/device-core-apis",
+                "host": "https://sggsc.punctualiti.tech/device-core-apis",
                 "port": 3623,
                 "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
             },
             "deviceApi": {
-                "host": "https://socgen.punctualiti.tech/device-apis",
+                "host": "https://sggsc.punctualiti.tech/device-apis",
                 "port": 3624
             }
         },
         "cronServices": {
             "cronServicesApi": {
-                "host": "https://socgen.punctualiti.tech/cron-services",
+                "host": "https://sggsc.punctualiti.tech/cron-services",
                 "port": 3625
             }
         },
         "helpdesk": {
             "helpdeskCoreApi": {
-                "host": "https://socgen.punctualiti.tech/helpdesk-core-apis",
+                "host": "https://sggsc.punctualiti.tech/helpdesk-core-apis",
                 "port": 3626,
                 "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
             },
             "helpdeskApi": {
-                "host": "https://socgen.punctualiti.tech/helpdesk-apis",
+                "host": "https://sggsc.punctualiti.tech/helpdesk-apis",
                 "port": 3627
             },
             "helpdeskAppApi": {
-                "host": "https://socgen.punctualiti.tech/helpdesk-app-apis",
+                "host": "https://sggsc.punctualiti.tech/helpdesk-app-apis",
                 "port": 3628
             },
             "helpdeskSupportingApi": {
-                "host": "https://socgen.punctualiti.tech/helpdesk-support-apis",
+                "host": "https://sggsc.punctualiti.tech/helpdesk-support-apis",
                 "port": 3629
             }
         },
         "feedback": {
             "feedbackApi": {
-                "host": "https://socgen.punctualiti.tech/feedback-apis",
+                "host": "https://sggsc.punctualiti.tech/feedback-apis",
                 "port": 3630
             },
             "feedbackFrontend": {
-                "host": "https://socgen.punctualiti.tech/feedback/helpdesk"
+                "host": "https://sggsc.punctualiti.tech/feedback/helpdesk"
+            }
+        }
+    },
+    "pfl": {
+        "accountId": "b2dc9e12-7a2f-11ea-8001-782421",
+        "accountHost": "https://pfl.punctualiti.tech",
+        "adminMaster": {
+            "adminMasterCoreApi": {
+                "host": "https://accounts.punctualiti.tech/masters-core-apis",
+                "port": 3000,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "adminMasterApi": {
+                "host": "https://accounts.punctualiti.tech/masters-apis",
+                "port": 3001
+            }
+        },
+        "userMaster": {
+            "userCoreApi": {
+                "host": "https://accounts.punctualiti.tech/user-core-apis",
+                "port": 3002,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "userApi": {
+                "host": "https://accounts.punctualiti.tech/user-apis",
+                "port": 3003
+            }
+        },
+        "ssoLogin": {
+            "ssoLoginApi": {
+                "host": "https://accounts.punctualiti.tech/sso-login",
+                "port": 3004
+            }
+        },
+        "communication": {
+            "communicationCoreApi": {
+                "host": "https://accounts.punctualiti.tech/communication-core-apis",
+                "port": 3005,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            }
+        },
+        "formBuilder": {
+            "formBuilderCoreApi": {
+                "host": "https://pfl.punctualiti.tech/formbuilder-core-apis",
+                "port": 3721,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "formBuilderApi": {
+                "host": "https://pfl.punctualiti.tech/formbuilder-apis",
+                "port": 3722
+            }
+        },
+        "device": {
+            "deviceCoreApi": {
+                "host": "https://pfl.punctualiti.tech/device-core-apis",
+                "port": 3723,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "deviceApi": {
+                "host": "https://pfl.punctualiti.tech/device-apis",
+                "port": 3724
+            }
+        },
+        "cronServices": {
+            "cronServicesApi": {
+                "host": "https://pfl.punctualiti.tech/cron-services",
+                "port": 3725
+            }
+        },
+        "helpdesk": {
+            "helpdeskCoreApi": {
+                "host": "https://pfl.punctualiti.tech/helpdesk-core-apis",
+                "port": 3726,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "helpdeskApi": {
+                "host": "https://pfl.punctualiti.tech/helpdesk-apis",
+                "port": 3727
+            },
+            "helpdeskAppApi": {
+                "host": "https://pfl.punctualiti.tech/helpdesk-app-apis",
+                "port": 3728
+            },
+            "helpdeskSupportingApi": {
+                "host": "https://pfl.punctualiti.tech/helpdesk-support-apis",
+                "port": 3729
+            }
+        },
+        "feedback": {
+            "feedbackApi": {
+                "host": "https://pfl.punctualiti.tech/feedback-apis",
+                "port": 3730
+            },
+            "feedbackFrontend": {
+                "host": "https://pfl.punctualiti.tech/feedback/helpdesk"
+            }
+        }
+    },
+    "camplusone": {
+        "accountId": "e08241f0-5bfe-4730-a999-e5ba2e93420c",
+        "accountHost": "https://camplusone.punctualiti.tech",
+        "adminMaster": {
+            "adminMasterCoreApi": {
+                "host": "https://accounts.punctualiti.tech/masters-core-apis",
+                "port": 3000,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "adminMasterApi": {
+                "host": "https://accounts.punctualiti.tech/masters-apis",
+                "port": 3001
+            }
+        },
+        "userMaster": {
+            "userCoreApi": {
+                "host": "https://accounts.punctualiti.tech/user-core-apis",
+                "port": 3002,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "userApi": {
+                "host": "https://accounts.punctualiti.tech/user-apis",
+                "port": 3003
+            }
+        },
+        "ssoLogin": {
+            "ssoLoginApi": {
+                "host": "https://accounts.punctualiti.tech/sso-login",
+                "port": 3004
+            }
+        },
+        "communication": {
+            "communicationCoreApi": {
+                "host": "https://accounts.punctualiti.tech/communication-core-apis",
+                "port": 3005,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            }
+        },
+        "formBuilder": {
+            "formBuilderCoreApi": {
+                "host": "https://camplusone.punctualiti.tech/formbuilder-core-apis",
+                "port": 3821,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "formBuilderApi": {
+                "host": "https://camplusone.punctualiti.tech/formbuilder-apis",
+                "port": 3822
+            }
+        },
+        "device": {
+            "deviceCoreApi": {
+                "host": "https://camplusone.punctualiti.tech/device-core-apis",
+                "port": 3823,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "deviceApi": {
+                "host": "https://camplusone.punctualiti.tech/device-apis",
+                "port": 3824
+            }
+        },
+        "cronServices": {
+            "cronServicesApi": {
+                "host": "https://camplusone.punctualiti.tech/cron-services",
+                "port": 3825
+            }
+        },
+        "helpdesk": {
+            "helpdeskCoreApi": {
+                "host": "https://camplusone.punctualiti.tech/helpdesk-core-apis",
+                "port": 3826,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "helpdeskApi": {
+                "host": "https://camplusone.punctualiti.tech/helpdesk-apis",
+                "port": 3827
+            },
+            "helpdeskAppApi": {
+                "host": "https://camplusone.punctualiti.tech/helpdesk-app-apis",
+                "port": 3828
+            },
+            "helpdeskSupportingApi": {
+                "host": "https://camplusone.punctualiti.tech/helpdesk-support-apis",
+                "port": 3829
+            }
+        },
+        "feedback": {
+            "feedbackApi": {
+                "host": "https://camplusone.punctualiti.tech/feedback-apis",
+                "port": 3830
+            },
+            "feedbackFrontend": {
+                "host": "https://camplusone.punctualiti.tech/feedback/helpdesk"
+            }
+        },
+        "vms": {
+            "vmsCoreApi": {
+                "host": "https://camplusone.punctualiti.tech/vms-core-apis",
+                "port": 3831,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "vmsAppApi": {
+                "host": "https://camplusone.punctualiti.tech/vms-app-apis",
+                "port": 3832
+            },
+            "vmsTerminalAppApi": {
+                "host": "https://camplusone.punctualiti.tech/vms-terminal-app-apis",
+                "port": 3833
+            }
+        }
+    },
+    "test": {
+        "accountId": "ae1121b0-72b9-4a1d-8395-6852c55b239d",
+        "accountHost": "https://test.punctualiti.tech",
+        "adminMaster": {
+            "adminMasterCoreApi": {
+                "host": "https://accounts.punctualiti.tech/masters-core-apis",
+                "port": 3000,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "adminMasterApi": {
+                "host": "https://accounts.punctualiti.tech/masters-apis",
+                "port": 3001
+            }
+        },
+        "userMaster": {
+            "userCoreApi": {
+                "host": "https://accounts.punctualiti.tech/user-core-apis",
+                "port": 3002,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "userApi": {
+                "host": "https://accounts.punctualiti.tech/user-apis",
+                "port": 3003
+            }
+        },
+        "ssoLogin": {
+            "ssoLoginApi": {
+                "host": "https://accounts.punctualiti.tech/sso-login",
+                "port": 3004
+            }
+        },
+        "communication": {
+            "communicationCoreApi": {
+                "host": "https://accounts.punctualiti.tech/communication-core-apis",
+                "port": 3005,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            }
+        },
+        "formBuilder": {
+            "formBuilderCoreApi": {
+                "host": "https://test.punctualiti.tech/formbuilder-core-apis",
+                "port": 3921,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "formBuilderApi": {
+                "host": "https://test.punctualiti.tech/formbuilder-apis",
+                "port": 3922
+            }
+        },
+        "device": {
+            "deviceCoreApi": {
+                "host": "https://test.punctualiti.tech/device-core-apis",
+                "port": 3923,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "deviceApi": {
+                "host": "https://test.punctualiti.tech/device-apis",
+                "port": 3924
+            }
+        },
+        "cronServices": {
+            "cronServicesApi": {
+                "host": "https://test.punctualiti.tech/cron-services",
+                "port": 3925
+            }
+        },
+        "helpdesk": {
+            "helpdeskCoreApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-core-apis",
+                "port": 3926,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "helpdeskApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-apis",
+                "port": 3927
+            },
+            "helpdeskAppApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-app-apis",
+                "port": 3928
+            },
+            "helpdeskSupportingApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-support-apis",
+                "port": 3929
+            }
+        },
+        "feedback": {
+            "feedbackApi": {
+                "host": "https://test.punctualiti.tech/feedback-apis",
+                "port": 3930
+            },
+            "feedbackFrontend": {
+                "host": "https://test.punctualiti.tech/feedback/helpdesk"
+            }
+        },
+        "vms": {
+            "vmsCoreApi": {
+                "host": "https://test.punctualiti.tech/vms-core-apis",
+                "port": 3931,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "vmsAppApi": {
+                "host": "https://test.punctualiti.tech/vms-app-apis",
+                "port": 3932
+            },
+            "vmsTerminalAppApi": {
+                "host": "https://test.punctualiti.tech/vms-terminal-app-apis",
+                "port": 3933
             }
         }
     }

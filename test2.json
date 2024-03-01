@@ -3,8 +3,8 @@
   "accountType": "CLIENT",
   "profile": {
     "logoUrl": "",
-    "legalName": "test",
-    "aliasName": "test",
+    "legalName": "Test Client",
+    "aliasName": "Test Client",
     "website": "",
     "buisnessCategory": ""
   },
@@ -25,4 +25,201 @@
     "isoDate": "2023-12-20T18:30:00.000Z"
   },
   "accountCode": "TEST"
+}
+
+{
+  "complexId": "a3775425-2541-498f-9b5d-d6529de3efe2",
+  "complexName": "Test Complex 1",
+  "accountId": "ae1121b0-72b9-4a1d-8395-6852c55b239d",
+  "status": "ACTIVE",
+  "createdDate": {
+    "epochDate": 1708687489451,
+    "isoDate": {
+      "$date": "2024-02-23T11:24:49.451Z"
+    }
+  },
+  "__v": 0
+}
+
+{
+  "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "client": {
+    "clientId": "ae1121b0-72b9-4a1d-8395-6852c55b239d",
+    "clientName": "Test Client",
+    "clientType": "CLIENT"
+  },
+  "siteCode": "TEST",
+  "complex": {
+    "complexId": "a3775425-2541-498f-9b5d-d6529de3efe2",
+    "complexName": "Test Complex 1"
+  },
+  "siteName": "Test Site 11",
+  "status": "ACTIVE",
+  "contacts": [],
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1678710406000"
+    },
+    "isoDate": {
+      "$date": "2023-03-13T12:26:46.000Z"
+    }
+  }
+}
+
+{
+  "buildingId": "195b1693-1d11-4748-b547-92780715a2fd",
+  "site": {
+    "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "siteName": "Test Site 11"
+  },
+  "buildingName": "Building 1",
+  "status": "ACTIVE",
+  "vendors": [],
+  "createdDate": {
+    "epochDate": 1674213870000,
+    "isoDate": {
+      "$date": "2023-01-20T11:24:30.000Z"
+    }
+  },
+  "__v": 0
+}
+
+{
+  "areaId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "buildingId": "NA",
+  "isRootArea": true,
+  "areaName": "Test Site 11",
+  "areaType": "SITE",
+  "parentArea": {
+    "parentAreaType": "SELF",
+    "parentAreaId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "parentAreaName": "Test Site 11"
+  },
+  "parentsHararchyArray": [
+    "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e"
+  ],
+  "status": "ACTIVE",
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1689830672000"
+    },
+    "isoDate": {
+      "$date": "2023-07-20T05:24:32.000Z"
+    }
+  }
+}
+
+{
+  "areaId": "195b1693-1d11-4748-b547-92780715a2fd",
+  "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "buildingId": "195b1693-1d11-4748-b547-92780715a2fd",
+  "isRootArea": false,
+  "areaName": "Building 1",
+  "areaType": "BUILDING",
+  "parentArea": {
+    "parentAreaType": "SITE",
+    "parentAreaId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "parentAreaName": "Test Site 11"
+  },
+  "parentsHararchyArray": [
+    "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "195b1693-1d11-4748-b547-92780715a2fd"
+  ],
+  "status": "ACTIVE",
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1701687228000"
+    },
+    "isoDate": {
+      "$date": "2023-12-04T10:53:48.000Z"
+    }
+  },
+  "__v": 0
+}
+
+{
+  "areaId": "eadbc320-006c-4d11-acaa-57297dbc480e",
+  "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "buildingId": "195b1693-1d11-4748-b547-92780715a2fd",
+  "isRootArea": false,
+  "areaName": "GF",
+  "areaType": "FLOOR",
+  "parentArea": {
+    "parentAreaType": "BUILDING",
+    "parentAreaId": "195b1693-1d11-4748-b547-92780715a2fd",
+    "parentAreaName": "Building 1"
+  },
+  "parentsHararchyArray": [
+    "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "195b1693-1d11-4748-b547-92780715a2fd",
+    "eadbc320-006c-4d11-acaa-57297dbc480e"
+  ],
+  "status": "ACTIVE",
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1640766862000"
+    },
+    "isoDate": {
+      "$date": "2021-12-29T08:34:22.000Z"
+    }
+  },
+  "__v": 0
+}
+
+{
+  "areaId": "937414f6-e18d-4951-964a-b562b900905a",
+  "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "buildingId": "937414f6-e18d-4951-964a-b562b900905a",
+  "isRootArea": false,
+  "areaName": "Building 2",
+  "areaType": "BUILDING",
+  "parentArea": {
+    "parentAreaType": "SITE",
+    "parentAreaId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "parentAreaName": "Test Site 11"
+  },
+  "parentsHararchyArray": [
+    "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "937414f6-e18d-4951-964a-b562b900905a"
+  ],
+  "status": "ACTIVE",
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1701687228000"
+    },
+    "isoDate": {
+      "$date": "2023-12-04T10:53:48.000Z"
+    }
+  },
+  "__v": 0
+}
+
+{
+  "areaId": "cc63802f-cac4-4aa4-b890-0c39d6fd656d",
+  "siteId": "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+  "buildingId": "937414f6-e18d-4951-964a-b562b900905a",
+  "isRootArea": false,
+  "areaName": "GF",
+  "areaType": "FLOOR",
+  "parentArea": {
+    "parentAreaType": "BUILDING",
+    "parentAreaId": "937414f6-e18d-4951-964a-b562b900905a",
+    "parentAreaName": "Building 2"
+  },
+  "parentsHararchyArray": [
+    "c0d5ca4a-62f8-4461-a475-9ff6144f8e9e",
+    "937414f6-e18d-4951-964a-b562b900905a",
+    "cc63802f-cac4-4aa4-b890-0c39d6fd656d"
+  ],
+  "status": "ACTIVE",
+  "createdDate": {
+    "epochDate": {
+      "$numberLong": "1640766862000"
+    },
+    "isoDate": {
+      "$date": "2021-12-29T08:34:22.000Z"
+    }
+  },
+  "__v": 0
 }

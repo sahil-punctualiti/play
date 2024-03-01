@@ -59,5 +59,38 @@
         "helpdesk": {
             "port": 3501
         }
+    },
+    "sggsc": {
+        "image": "",
+        "accountId": "b2dc9e12-7a2f-11ea-8001-005056991d95",
+        "host": "https://sggsc.punctualiti.tech",
+        "dashboard": {
+            "port": 3600
+        },
+        "helpdesk": {
+            "port": 3601
+        }
+    },
+    "pfl": {
+        "image": "",
+        "accountId": "b2dc9e12-7a2f-11ea-8001-782421",
+        "host": "https://pfl.punctualiti.tech",
+        "dashboard": {
+            "port": 3700
+        },
+        "helpdesk": {
+            "port": 3701
+        }
+    },
+    "camplusone": {
+        "image": "",
+        "accountId": "e08241f0-5bfe-4730-a999-e5ba2e93420c",
+        "host": "https://camplusone.punctualiti.tech",
+        "dashboard": {
+            "port": 3800
+        },
+        "helpdesk": {
+            "port": 3801
+        }
     }
 }

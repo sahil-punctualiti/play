@@ -3,7 +3,7 @@ punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
                 pswd : arV03$y42 or arU03$y42
 gitPswd: 88********@sahil
-gitToken :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
+gitToken :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
 
 setenforce 0
 
@@ -67,9 +67,3 @@ client=knightfrank pm2 restart 29
 client=test pm2 start npm --name test_hellpdeskFrontend -- start -- --port=3901
 
 
-
-Created a test helpdesk site for demo and test Purpose
-https://test.punctualiti.tech/helpdesk/viewTickets
-userName: testsm
-password: User@123
-accountCode : TEST

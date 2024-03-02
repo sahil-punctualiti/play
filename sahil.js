@@ -1,4 +1,10 @@
-let a = "sahil@test.com"
+let a = {
+    "sahil.a":1
+}
 
-let b = a.split("@")[0]
+a["sahil.a.a"] = 2
+
+let b ={}
+b["l"]= a["sahil.a.a"]
+
 console.log(b);

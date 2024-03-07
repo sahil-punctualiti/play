@@ -3,7 +3,7 @@ punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
                 pswd : arV03$y42 or arU03$y42
 gitPswd: 88********@sahil
-gitToken :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
+gitToken :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
 
 setenforce 0
 
@@ -48,7 +48,7 @@ dnf install redis -y
 
 8850500669Sahil@
 mysql -u root -p
-mysql -u root -p punctual_matrix_master < punctual_matrix_master_20240223093828.sql
+mysql -u root -p punctual_prozone_master < punctual_prozone_master.sql
 
 
 pm2 start npm --name fmxLandingFrontenf -- start --port 3000

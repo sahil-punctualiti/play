@@ -865,5 +865,115 @@
                 "port": 3833
             }
         }
+    },
+    "test": {
+        "accountId": "ae1121b0-72b9-4a1d-8395-6852c55b239d",
+        "accountHost": "https://test.punctualiti.tech",
+        "adminMaster": {
+            "adminMasterCoreApi": {
+                "host": "https://accounts.punctualiti.tech/masters-core-apis",
+                "port": 3000,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "adminMasterApi": {
+                "host": "https://accounts.punctualiti.tech/masters-apis",
+                "port": 3001
+            }
+        },
+        "userMaster": {
+            "userCoreApi": {
+                "host": "https://accounts.punctualiti.tech/user-core-apis",
+                "port": 3002,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "userApi": {
+                "host": "https://accounts.punctualiti.tech/user-apis",
+                "port": 3003
+            }
+        },
+        "ssoLogin": {
+            "ssoLoginApi": {
+                "host": "https://accounts.punctualiti.tech/sso-login",
+                "port": 3004
+            }
+        },
+        "communication": {
+            "communicationCoreApi": {
+                "host": "https://accounts.punctualiti.tech/communication-core-apis",
+                "port": 3005,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            }
+        },
+        "formBuilder": {
+            "formBuilderCoreApi": {
+                "host": "https://test.punctualiti.tech/formbuilder-core-apis",
+                "port": 3921,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "formBuilderApi": {
+                "host": "https://test.punctualiti.tech/formbuilder-apis",
+                "port": 3922
+            }
+        },
+        "device": {
+            "deviceCoreApi": {
+                "host": "https://test.punctualiti.tech/device-core-apis",
+                "port": 3923,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "deviceApi": {
+                "host": "https://test.punctualiti.tech/device-apis",
+                "port": 3924
+            }
+        },
+        "cronServices": {
+            "cronServicesApi": {
+                "host": "https://test.punctualiti.tech/cron-services",
+                "port": 3925
+            }
+        },
+        "helpdesk": {
+            "helpdeskCoreApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-core-apis",
+                "port": 3926,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "helpdeskApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-apis",
+                "port": 3927
+            },
+            "helpdeskAppApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-app-apis",
+                "port": 3928
+            },
+            "helpdeskSupportingApi": {
+                "host": "https://test.punctualiti.tech/helpdesk-support-apis",
+                "port": 3929
+            }
+        },
+        "feedback": {
+            "feedbackApi": {
+                "host": "https://test.punctualiti.tech/feedback-apis",
+                "port": 3930
+            },
+            "feedbackFrontend": {
+                "host": "https://test.punctualiti.tech/feedback/helpdesk"
+            }
+        },
+        "vms": {
+            "vmsCoreApi": {
+                "host": "https://test.punctualiti.tech/vms-core-apis",
+                "port": 3931,
+                "mongoDb": "mongodb://adminM:464386bf76b9ac39d3ac@164.52.216.202:27017"
+            },
+            "vmsAppApi": {
+                "host": "https://test.punctualiti.tech/vms-app-apis",
+                "port": 3932
+            },
+            "vmsTerminalAppApi": {
+                "host": "https://test.punctualiti.tech/vms-terminal-app-apis",
+                "port": 3933
+            }
+        }
     }
 }

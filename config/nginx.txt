@@ -1215,6 +1215,119 @@ server {
         }
    }
 
+   server {
+        listen       443 ssl http2;
+        listen       [::]:443 ssl http2;
+        server_name  basl.punctualiti.tech;
+        #root         /usr/share/nginx/html;
+
+        ssl_certificate "/etc/fmx/certs/ssl/chain.crt";
+        ssl_certificate_key "/etc/fmx/certs/ssl/punctualiti.tech.key";
+
+       # location / {
+       #    proxy_pass http://127.0.0.1:4038;
+       # }
+
+
+	   location /helpdesk {
+           proxy_pass http://127.0.0.1:4001/helpdesk;
+        }
+
+	   location /feedback/helpdesk {
+            proxy_pass http://127.0.0.1:4002/feedback/helpdesk;
+
+        }
+        
+
+      location /masters-core-apis/ {
+            proxy_pass http://127.0.0.1:3000/;
+         }
+
+      location /masters-apis/ {
+            proxy_pass http://127.0.0.1:3001/;
+         }
+
+      location /user-core-apis/ {
+            proxy_pass http://127.0.0.1:3002/;
+         }
+
+      location /user-apis/ {
+            proxy_pass http://127.0.0.1:3003/;
+         }
+
+      location /communication-core-apis/ {
+           proxy_pass http://127.0.0.1:3004/;
+        }
+        
+   	location /sso-login/ {
+           proxy_pass http://127.0.0.1:3005/;
+        }
+
+      location /formbuilder-core-apis/ {
+           proxy_pass http://127.0.0.1:4021/;
+        }
+
+      location /formbuilder-apis/ {
+           proxy_pass http://127.0.0.1:4022/;
+        }
+
+      location /device-core-apis/ {
+           proxy_pass http://127.0.0.1:4023/;
+        }
+
+      location /device-apis/ {
+           proxy_pass http://127.0.0.1:4024/;
+        }
+
+      location /cron-services/ {
+           proxy_pass http://127.0.0.1:4025/;
+        }
+
+      location /helpdesk-core-apis/ {
+            proxy_pass http://127.0.0.1:4026/;
+         }
+
+      location /helpdesk-apis/ {
+            proxy_pass http://127.0.0.1:4027/;
+         }
+
+      location /helpdesk-app-apis/ {
+            proxy_pass http://127.0.0.1:4028/;
+         }
+
+      location /helpdesk-support-apis/ {
+            proxy_pass http://127.0.0.1:4029/;
+         }
+
+      location /feedback-apis/ {
+            proxy_pass http://127.0.0.1:4030/;
+         }
+
+      location /helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/basl/.next/;
+           }
+
+	   location /helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/basl/.next/;
+           }
+
+	   location /helpdesk/UserInfo/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFrontend/basl/.next/;
+           }
+
+      location /feedback/helpdesk/helpdeskBuild/_next/ {
+              alias /var/dev/helpdeskFeedbackFrontend/basl/.next/;
+           }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+   }
+
     server {
         listen       80;
         listen       [::]:80;
@@ -1264,3 +1377,4 @@ server {
 #    }
 
 }
+

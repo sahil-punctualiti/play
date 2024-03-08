@@ -103,5 +103,16 @@
         "helpdesk": {
             "port": 3901
         }
+    },
+    "basl": {
+        "image": "",
+        "accountId": "9d4f5635-32aa-11ea-a86d-1c1b0dc1b24f",
+        "host": "https://basl.punctualiti.tech",
+        "dashboard": {
+            "port": 4000
+        },
+        "helpdesk": {
+            "port": 4001
+        }
     }
 }

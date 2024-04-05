@@ -1,9 +1,9 @@
 linuxPass: 8850******
 punctualitiMail : https://webmail.punctualiti.com/
                 mail : sahil.m@punctualiti.com 
-                pswd : arV03$y42 or arU03$y42
+                pswd : Tb9us$nb
 gitPswd: 88********@sahil
-gitToken :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
+gitToken :`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`
 
 setenforce 0
 
@@ -19,7 +19,7 @@ pswd sahil987
 prod server
 ssh -i sahilX38 root@139.5.190.75
 
-
+    
 
 mongodb : {userName: "adminM", pswd:"464386bf76b9ac39d3ac"}
 
@@ -48,24 +48,26 @@ dnf install redis -y
 
 8850500669Sahil@
 mysql -u root -p
-mysql -u root -p punctual_prozone_master < punctual_prozone_master.sql
+mysql -u root -p punctual_knightfrank_master < punctual_knightfrank_master.sql
 
 
 pm2 start npm --name fmxLandingFrontenf -- start --port 3000
-netstat -anp | grep "3134"
-lsof -i -P -n | grep 3004
+netstat -anp | grep "3004"
+lsof -i -P -n | grep 4202
 
 client=knightfrank node index.js
 client=knightfrank pm2 start index.js --name adminMasterApi --update-env
-client=basl pm2 start index.js --name basl_cronServices --update-env
+client=sfs pm2 start index.js --name sfs_cronServices --update-env
 
+client=punctualiti pm2 start index.js --name adminMasterSupportApi --update-env
 
 client=knightfrank npm start -- --port=3010
 client=knightfrank pm2 start npm --name knightfrank_hellpdeskFrontend -- start -- --port=3101
 client=knightfrank pm2 restart 29
 
-client=basl pm2 start npm --name basl_hellpdeskFrontend -- start -- --port=4001
+client=sfs pm2 start npm --name sfs_hellpdeskFrontend -- start -- --port=4201
 
-client=basl pm2 start npm --name basl_hellpdeskFeedbackFrontend -- start -- --port=4002
+client=sfs pm2 start npm --name sfs_hellpdeskFeedbackFrontend -- start -- --port=4202
+
 
 

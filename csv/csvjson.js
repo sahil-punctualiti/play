@@ -1,10 +1,9 @@
 const fs = require('fs');
 
 let d = fs.readFileSync("./csvFiles/test.csv", "utf-8");
-// console.log(d);
-
 function csvTojson(csvString) {
     let data = csvString.split("\n");
+    console.log(data);
     let keys = data[0].split(",");
     console.log({ keys });
     let jsonObjArray = [];

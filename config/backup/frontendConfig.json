@@ -36,6 +36,9 @@
         },
         "helpdesk": {
             "port": 3301
+        },
+        "helpdeskFeedback": {
+            "port": 3302
         }
     },
     "vertiv": {
@@ -47,6 +50,9 @@
         },
         "helpdesk": {
             "port": 3401
+        },
+        "helpdeskFeedback": {
+            "port": 3402
         }
     },
     "prozone": {
@@ -58,6 +64,9 @@
         },
         "helpdesk": {
             "port": 3501
+        },
+        "helpdeskFeedback": {
+            "port": 3502
         }
     },
     "sggsc": {
@@ -69,6 +78,9 @@
         },
         "helpdesk": {
             "port": 3601
+        },
+        "helpdeskFeedback": {
+            "port": 3602
         }
     },
     "pfl": {
@@ -80,6 +92,9 @@
         },
         "helpdesk": {
             "port": 3701
+        },
+        "helpdeskFeedback": {
+            "port": 3702
         }
     },
     "camplusone": {
@@ -91,6 +106,9 @@
         },
         "helpdesk": {
             "port": 3801
+        },
+        "helpdeskFeedback": {
+            "port": 3802
         }
     },
     "test": {
@@ -102,6 +120,37 @@
         },
         "helpdesk": {
             "port": 3901
+        },
+        "helpdeskFeedback": {
+            "port": 3902
+        }
+    },
+    "basl": {
+        "image": "",
+        "accountId": "9d4f5635-32aa-11ea-a86d-1c1b0dc1b24f",
+        "host": "https://basl.punctualiti.tech",
+        "dashboard": {
+            "port": 4000
+        },
+        "helpdesk": {
+            "port": 4001
+        },
+        "helpdeskFeedback": {
+            "port": 4002
+        }
+    },
+    "fmx": {
+        "image": "",
+        "accountId": "9d4f5635-32aa-11ea-a86d-1c1b0dc1b24f",
+        "host": "https://fmx.punctualiti.tech",
+        "dashboard": {
+            "port": 4100
+        },
+        "helpdesk": {
+            "port": 4101
+        },
+        "helpdeskFeedback": {
+            "port": 4102
         }
     }
 }

@@ -1,0 +1,51 @@
+[
+    {
+      $match: {
+        areaId:
+          "7f265a71-1048-4ae4-8d37-32c7ce206416",
+      },
+    },
+    // {
+    //   $project:
+    // }
+    {
+      $project:
+        /**
+         * specifications: The fields to
+         *   include or exclude.
+         */
+        {
+          ticketType: "$ticketType.ticketTypeTitle",
+          issueType: "$issueType.issueTypeTitle",
+          category: "$category.categoryName",
+          subCategory:
+            "$subCategory.subCategoryName",
+          issue: "$issue.issueTitle",
+          levelResponseTime: "$levels.responseTime",
+          levelResolutionTime:
+            "$levels.resolutionTime",
+          levelAssignee:
+            "$levels.assignTo.assignedToDetails.name",
+          priority: "$priority.priorityTitle",
+          status:"$status",
+  				client: {
+            $cond: {
+              if: {
+                $eq: ["$escalationFor", ["CLIENT"]],
+              },
+              then: true,
+              else: false,
+            },
+          },
+          tenant: {
+            $cond: {
+              if: {
+                $eq: ["$escalationFor", ["TENANT"]],
+              },
+              then: true,
+              else: false,
+            },
+          },
+        },
+    },
+  ]

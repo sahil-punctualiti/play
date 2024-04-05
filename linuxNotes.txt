@@ -46,7 +46,7 @@ dnf install redis -y
 
 
 
-8850500669Sahil@
+8850******Sahil@
 mysql -u root -p
 mysql -u root -p punctual_knightfrank_master < punctual_knightfrank_master.sql
 

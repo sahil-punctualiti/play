@@ -1,3 +1,27 @@
+linuxPass: 8850******
+punctualitiMail : https://webmail.punctualiti.com/
+                mail : sahil.m@punctualiti.com 
+                pswd : Tb9us$nb
+gitPswd: 88********@sahil
+gitToken :``
+
+setenforce 0
+
+zohoMail : sahil.momin@projectx38.com
+pswd: 8850****** or 8850******@sA or 8850******sA
+
+mongodb-compass --no-sandbox &
+
+dev server
+ssh -i sahilX38 sahil@164.52.216.202
+pswd sahil987
+
+prod server
+ssh -i sahilX38 root@139.5.190.75
+
+    
+
+mongodb : {userName: "adminM", pswd:"464386bf76b9ac39d3ac"}
 
 git init
 git remote add origin https://githubRepoLink.com
